@@ -1,0 +1,29 @@
+<h1>Constructed Buildings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Group</th>
+      <th>Construction time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @constructed_buildings.each do |constructed_building| %>
+      <tr>
+        <td><%= constructed_building.building.name %></td>
+        <td><%= constructed_building.group.name %></td>
+        <td><%= constructed_building.construction_time.localtime %></td>
+        <td><%= icon_link_to 'search', 'Show', group_constructed_building_path(@group, constructed_building) %></td>
+        <td><%= icon_link_to 'pencil', 'Edit', edit_group_constructed_building_path(@group.id, constructed_building) %></td>
+        <td><%= icon_link_to 'trash' 'Destroy', group_constructed_building_path(@group.id, constructed_building), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Constructed Building', new_group_constructed_building_path %>

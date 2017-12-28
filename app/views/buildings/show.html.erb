@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-8">
+    <h1><%= @building.name %></h1>
+  </div>
+  <div class="col-4">
+    <h6 class="float-right action-buttons">
+      <%= icon_link_to 'level-up', t(:back), buildings_path %>
+    </h6>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12 col-md-4">
+    <%= image_tag @building.image, class: 'img-responsive col-12' %>
+  </div>
+  <div class="col-12 col-md-8">
+  <%= render 'building', building: @building %>
+  </div>
+</div>

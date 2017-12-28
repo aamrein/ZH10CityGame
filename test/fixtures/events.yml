@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: one
+  impact_percent: 10
+  duration_sec: 60
+  comment: one
+
+two:
+  name: two
+  impact_percent: 20
+  duration_sec: 3600
+  comment: two

@@ -1,0 +1,58 @@
+de:
+  at: 'um'
+  show: 'Details'
+  edit: 'Bearbeiten'
+  delete: 'Löschen'
+  new: 'Neu'
+  build: 'Bauen'
+  back: 'Zurück'
+  minutes: 'Minuten'
+  all: 'Alle'
+  trigger_event: 'Event auslösen'
+  not_authorized: 'Sie sind nicht berechtigt diese Seite zu öffnen!'
+  are_you_sure?: 'Sind Sie sicher?'
+  no_group: 'Sie sind keiner Gruppe zugeordnet. Bitte wenden Sie sich an Ihren Spielleiter.'
+  nothing: 'keines'
+
+  under_construction: 'wird gebaut'
+  cant_build: 'kann nicht gebaut werden'
+
+  group:
+    can_not_build_first_build_x: "Zuerst %{building_name} bauen."
+    constructed_buildings: 'Gebaute Gebäude'
+    not_constructed_buildings: 'Nicht gebaute Gebäude'
+
+  activerecord:
+    models:
+      category:
+        one: 'Kategorie'
+        other: 'Kategorien'
+      building: 'Gebäude'
+      event:
+        one: 'Event'
+        other: 'Events'
+      game:
+        one: 'Spiel'
+        other: 'Spiele'
+      group:
+        one: 'Gruppe'
+        other: 'Gruppen'
+    attributes:
+      building:
+        name: 'Name'
+        cost: 'Baukosten'
+        cost_per_hour: 'Kosten pro Stunde'
+        income_per_hour: 'Ertrag pro Stunde'
+        inhabitants: 'Bevölkerung'
+        construction_duration: 'Konstruktionsdauer'
+        required_building: 'Benötigtes Gebäude'
+        comment: 'Kommentar'
+      constructed_building:
+        construction_at: 'Gebaut am'
+        remaining_construction_time: 'Verbleibende Bauzeit'
+      event:
+        impact_percent: 'Schaden in Prozent'
+        duration: 'Dauer bis der Schaden repariert ist.'
+      group:
+        phone: 'Telefon'
+        email: 'Email'

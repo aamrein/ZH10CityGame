@@ -1,0 +1,18 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+event_one_one:
+  event: one
+  constructed_building: in_running_finished
+  start: <%= 1.hours.ago.to_s(:db) %>
+  comment: log one
+
+event_one_two:
+  event: one
+  constructed_building: in_running_finished
+  start: <%= 30.minutes.ago.to_s(:db) %>
+  comment: log two
+
+event_tow_to_late:
+  event: two
+  start: <%= 30.minutes.ago.to_s(:db) %>
+  comment: log two

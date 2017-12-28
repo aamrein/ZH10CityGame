@@ -1,0 +1,19 @@
+<h1><%= @event_log.event.name %></h1>
+
+<p>
+  <strong>Event comment:</strong>
+  <%= @event_log.event.comment %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @event_log.start.localtime %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @event_log.comment %>
+</p>
+
+<%= icon_link_to 'pencil', 'Edit', edit_group_constructed_building_event_log_path(@group, @constructed_building, @event_log) %> |
+<%= icon_link_to 'level-up', 'Back', group_constructed_building_event_logs_path %>

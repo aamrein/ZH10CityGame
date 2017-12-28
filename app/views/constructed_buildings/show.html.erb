@@ -1,0 +1,14 @@
+<h1><%= @constructed_building.building.name %></h1>
+
+<p>
+  <strong>Group:</strong>
+  <%= @constructed_building.group.name %>
+</p>
+
+<p>
+  <strong>Construction time:</strong>
+  <%= @constructed_building.construction_time.localtime %>
+</p>
+
+<%= icon_link_to 'pencil', 'Edit', edit_group_constructed_building_path(@group, @constructed_building) %> |
+<%= icon_link_to 'trash', 'Back', group_constructed_buildings_path(@group) %>

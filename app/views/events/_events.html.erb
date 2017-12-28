@@ -1,0 +1,52 @@
+<div class="row">
+  <% @events.each do |event| %>
+      <div class="col-4">
+        <div class="card">
+          <div class="card-header">
+            <h4><%= event.name %></h4>
+            <div class="row">
+              <div class="col-4">
+                <%= fa_icon 'bomb',
+                            text: "#{event.impact_percent}%",
+                            title: "#{Event.human_attribute_name(:impact_percent)}" %>
+              </div>
+              <div class="col-8">
+                <%= fa_icon 'clock-o',
+                            text: "#{event.duration_min} #{t(:minutes)}",
+                            title: "#{Event.human_attribute_name(:duration)}" %>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12"><%= event.comment %></div>
+            </div>
+            <% unless @game.nil? %>
+              <hr/>
+              <form action="<%= add_event_log_path %>" method="get">
+                <div class="form-group">
+                  <select class="form-control form-control-sm" name="group">
+                    <option value="all"><%= t(:all) %></option>
+                    <% @game.groups.each do |group| %>
+                        <option value="<%= group.id %>"><%= group.name %></option>
+                    <% end %>
+                  </select>
+                  <select class="form-control form-control-sm" name="group">
+                    <option value="all"><%= t(:all) %></option>
+                    <% @game.groups.each do |group| %>
+                        <option value="<%= group.id %>"><%= group.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+                <input name="game" value="<%= @game.id %>" hidden>
+                <input name="event" value="<%= event.id %>" hidden>
+                <button type="submit" class="btn btn-primary btn-sm pull-right">
+                  <%= t(:trigger_event) %>
+                </button>
+              </form>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

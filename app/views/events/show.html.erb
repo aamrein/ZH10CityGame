@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Impact percent:</strong>
+  <%= @event.impact_percent %>
+</p>
+
+<p>
+  <strong>Duration sec:</strong>
+  <%= @event.duration_sec %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @event.comment %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

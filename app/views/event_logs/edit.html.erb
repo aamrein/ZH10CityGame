@@ -1,0 +1,6 @@
+<h1>Editing Event Log</h1>
+
+<%= render 'form', event_log: @event_log %>
+
+<%= icon_link_to 'search', 'Show', group_constructed_building_event_log_path(@group, @constructed_building, @event_log) %> |
+<%= icon_link_to 'level-up', 'Back', group_constructed_building_event_logs_path %>

@@ -1,0 +1,6 @@
+<h1>Editing Constructed Building</h1>
+
+<%= render 'form', constructed_building: @constructed_building %>
+
+<%= icon_link_to 'search', 'Show', group_constructed_building_path(@group, @constructed_building) %> |
+<%= icon_link_to 'level-up', 'Back', group_constructed_buildings_path(@group) %>

@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+in_running_finished:
+  building: one
+  group: one
+  construction_time: <%= 2.hours.ago.to_s(:db) %>
+
+in_running_under_construction:
+  building: two
+  group: one
+  construction_time: <%= 1.hours.ago.to_s(:db) %>
+
+before_running:
+  building: one
+  group: one
+  construction_time: <%= 50.hours.ago.to_s(:db) %>

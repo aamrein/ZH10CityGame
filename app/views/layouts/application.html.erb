@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RealityGameAdmin</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="<%= root_path %>">ZH10</a>
+  <% if !current_user.nil? %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if current_user.admin? %>
+          <%= active_link_to Group.model_name.human(count: 2), groups_path, class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+        <% else %>
+          <%= active_link_to Group.model_name.human(), groups_path, class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+        <% end %>
+        <%= active_link_to Building.model_name.human(count: 2), buildings_path, class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+        <% if current_user.admin? %>
+          <%= active_link_to Game.model_name.human(count: 2), games_path, class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+          <%= active_link_to Event.model_name.human(count: 2), events_path, class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</nav>
+
+<div class="container">
+<div id="notice" class="notice flash" style="display:none"><%= notice %></div>
+<div id="alert" class="alert flash" style="display:none"><%= alert %></div>
+
+<%= yield %>
+
+</div>
+
+<script>
+    $(function() {
+        $('.flash').each(function (index, el) {
+            console.log($(el).context.innerText);
+            if($(el).context.innerText !== "") {
+            $(el).delay(200).fadeIn('normal', function() {
+                    $(this).delay(5500).fadeOut();
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

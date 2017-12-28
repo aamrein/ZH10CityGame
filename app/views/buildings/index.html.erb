@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-8">
+    <h1>Buildings</h1>
+  </div>
+  <div class="col-4">
+    <h6 class="float-right action-buttons">
+      <%= icon_link_to 'plus', t(:new), new_building_path %>
+      <%= icon_link_to 'level-up', t(:back), buildings_path %>
+    </h6>
+  </div>
+</div>
+
+<% @categories.each do |category| %>
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-border-less">
+          <div class="card-header" style="background-color: <%= category.color %>; color: #ffffff">
+            <h4 class="card-title"><%= category.name %></h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+            <%= render partial: 'building_list_item', collection: category.buildings, as: :building %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </br>
+<% end %>

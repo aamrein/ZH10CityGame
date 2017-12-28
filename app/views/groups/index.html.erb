@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-8">
+    <% if current_user.admin? %>
+      <h1><%= Group.model_name.human(count: 2) %></h1>
+    <% else %>
+      <h1><%= Group.model_name.human   %></h1>
+    <% end %>
+  </div>
+  <% if current_user.admin? %>
+    <div class="col-4">
+      <h6 class="float-right action-buttons">
+        <%= icon_link_to 'plus', t(:new), new_group_path %>
+      </h6>
+    </div>
+  <% end %>
+</div>
+
+
+<% if @groups.nil? %>
+  <div class="row">
+    <div class="col-12">
+      <%= t(:no_group) %>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <% @groups.each do |group| %>
+      <%= render group %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-8">
+    <div class="row">
+      <div class="col-12 col-sm-8"><h1><%= @group.name %></h1></div>
+      <div class="col-12 col-sm-4"><h1><%= "#{format_currency(@group.balance)}" %></h1></div>
+    </div>
+  </div>
+  <div class="col-4">
+    <h6 class="float-right action-buttons">
+      <%= fa_icon('info-circle 2x', title: "#{@group.email} | #{@group.phone}", 'data-toggle' => 'modal', 'data-target' => '#infoModal') %>
+      <%= icon_link_to 'pencil', t(:edit), edit_group_path(@group) %>
+      <%= icon_link_to 'level-up', t(:back), groups_path %>
+    </h6>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <span class="badge badge-info badge-pill float-right"
+          title="<%= "#{format_date_time(@group.game.start.localtime)} - #{format_date_time(@group.game.end.localtime)}" %>">
+      <%= @group.game %>
+    </span>
+  </div>
+</div>
+
+<ul class="nav nav-tabs" id="groupTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="constructed-tab" data-toggle="tab" href="#constructed" role="tab" aria-controls="constructed" aria-selected="true">
+      <%= t('group.constructed_buildings') %>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="not-constructed-tab" data-toggle="tab" href="#not-constructed" role="tab" aria-controls="not-constructed" aria-selected="false">
+      <%= t('group.not_constructed_buildings') %>
+    </a>
+  </li>
+</ul>
+<div class="tab-content" id="groupTabContent">
+  <div class="tab-pane fade show active" id="constructed" role="tabpanel" aria-labelledby="constructed-tab">
+    <% constructed_buildings_categories(@group.constructed_buildings).each do |category| %>
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-border-less">
+            <div class="card-header" style="background-color: <%= category.color %>; color: #ffffff">
+              <h4 class="card-title"><%= category.name %></h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <% @group.constructed_buildings.select{|cb| cb.building.category.eql?(category)}.each do |constructed_building| %>
+                    <%= render partial: 'constructed_building', locals: {constructed_building: constructed_building} %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="tab-pane fade" id="not-constructed" role="tabpanel" aria-labelledby="not-constructed-tab">
+    <% buildings_categories(@group.constructable_buildings).each do |category| %>
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-border-less">
+            <div class="card-header" style="background-color: <%= category.color %>; color: #ffffff">
+              <h4 class="card-title"><%= category.name %></h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <% @group.constructable_buildings.select{|building| building.category.eql?(category)}.each do |building| %>
+                  <%= render partial: 'buildings/building_list_item', locals: {building: building, group: @group} %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel"><%= @group.name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <%= "#{Group.human_attribute_name(:email)} : #{@group.email}" %>
+        </div>
+        <div>
+          <%= "#{Group.human_attribute_name(:phone)} : #{@group.phone}" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

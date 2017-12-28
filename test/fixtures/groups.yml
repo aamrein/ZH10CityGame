@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game: running_game
+  name: group one running
+  email: email@one.ch
+  phone: MyString
+  start_balance: 9.99
+  comment: MyString
+
+two:
+  game: running_game
+  name: group two running
+  email: email@two.ch
+  phone: MyString
+  start_balance: 9.99
+  comment: MyString

@@ -1,0 +1,2 @@
+module ConstructedBuildingsHelper
+end

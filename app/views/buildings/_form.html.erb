@@ -1,0 +1,52 @@
+<%= form_with(model: building, local: true) do |form| %>
+  <% if building.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
+
+      <ul>
+      <% building.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.text_field :category_id, id: :building_category_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :building_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inhabitants %>
+    <%= form.number_field :inhabitants, id: :building_inhabitants %>
+  </div>
+
+  <div class="field">
+    <%= form.label :construction_duration_sec %>
+    <%= form.number_field :construction_duration_sec, id: :building_construction_duration_sec %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.number_field :cost, id: :building_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment, id: :building_comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :building_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

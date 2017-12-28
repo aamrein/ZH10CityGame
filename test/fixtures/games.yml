@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+running_game:
+  name: Running game
+  start: <%= 5.hours.ago.to_s(:db) %>
+  duration: 24
+  amount_per_inhabitants_per_hour: 100
+
+passt_game:
+  name: Past game
+  start: 2015-11-06 22:17:11
+  duration: 24
+  amount_per_inhabitants_per_hour: 100
+
+future_game:
+  name: Past game
+  start: 2015-11-06 22:17:11
+  duration: 24
+  amount_per_inhabitants_per_hour: 100

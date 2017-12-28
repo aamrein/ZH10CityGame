@@ -1,0 +1,32 @@
+<%= form_with(model: event_log, url: group_constructed_building_event_log_path, local: true) do |form| %>
+  <% if event_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event_log.errors.count, "error") %> prohibited this event_log from being saved:</h2>
+
+      <ul>
+      <% event_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :event_id %>
+    <%= form.text_field :event_id, id: :event_log_event_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.datetime_select :start, id: :event_log_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment, id: :event_log_comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

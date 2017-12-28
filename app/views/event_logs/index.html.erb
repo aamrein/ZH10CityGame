@@ -1,0 +1,29 @@
+<h1>Event Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Start</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_logs.each do |event_log| %>
+      <tr>
+        <td title="<%= event_log.event.comment %>"><%= event_log.event.name %></td>
+        <td><%= event_log.start.localtime %></td>
+        <td><%= event_log.comment %></td>
+        <td><%= icon_link_to 'search', 'Show', group_constructed_building_event_log_path(@group, @constructed_building, event_log) %></td>
+        <td><%= icon_link_to 'pencil', 'Edit', edit_group_constructed_building_event_log_path(@group, @constructed_building, event_log) %></td>
+        <td><%= icon_link_to 'trash', 'Destroy', group_constructed_building_event_log_path(@group, @constructed_building, event_log), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event Log', new_group_constructed_building_event_log_path %>

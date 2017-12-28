@@ -1,0 +1,32 @@
+<%= form_with(model: constructed_building, url: group_constructed_buildings_path, local: true) do |form| %>
+  <% if constructed_building.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(constructed_building.errors.count, "error") %> prohibited this constructed_building from being saved:</h2>
+
+      <ul>
+      <% constructed_building.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :building_id %>
+    <%= form.text_field :building_id, id: :constructed_building_building_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group_id %>
+    <%= form.text_field :group_id, id: :constructed_building_group_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :construction_time %>
+    <%= form.datetime_select :construction_time, id: :constructed_building_construction_time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
