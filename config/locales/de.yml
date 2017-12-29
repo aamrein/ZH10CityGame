@@ -53,6 +53,10 @@ de:
       event:
         impact_percent: 'Schaden in Prozent'
         duration: 'Dauer bis der Schaden repariert ist.'
+      game:
+        start: 'Start'
+        duration: 'Dauer'
+        amount_per_inhabitants_per_hour: 'Einnahmen pro Person und Stunde'
       group:
         phone: 'Telefon'
         email: 'Email'
