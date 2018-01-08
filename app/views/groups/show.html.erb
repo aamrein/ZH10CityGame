@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-8">
+  <div class="col-8 col-md-9">
     <div class="row">
-      <div class="col-12 col-sm-8"><h1><%= @group.name %></h1></div>
-      <div class="col-12 col-sm-4"><h1><%= "#{format_currency(@group.balance)}" %></h1></div>
+      <div class="col-12 col-md-6"><h1><%= @group.name %></h1></div>
+      <div class="col-12 col-md-6"><h1><%= "#{format_currency(@group.balance)}" %></h1></div>
     </div>
   </div>
-  <div class="col-4">
+  <div class="col-4 col-md-3">
     <h6 class="float-right action-buttons">
       <%= fa_icon('info-circle 2x', title: "#{@group.email} | #{@group.phone}", 'data-toggle' => 'modal', 'data-target' => '#infoModal') %>
       <%= icon_link_to 'pencil', t(:edit), edit_group_path(@group) %>

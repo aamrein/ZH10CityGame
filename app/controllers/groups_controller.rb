@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_admin, only: [:new, :edit, :update, :destroy]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_games, only: [:edit, :update, :new]
 
   # GET /groups
   def index
@@ -60,6 +61,10 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @game = Game.find(@group.game_id) unless @group.nil?
     @buildings = Building.all()
+  end
+
+  def set_games
+    @games = Game.all()
   end
 
   def group_params
