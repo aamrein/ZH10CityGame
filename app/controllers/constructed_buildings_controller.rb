@@ -13,10 +13,10 @@ class ConstructedBuildingsController < ApplicationController
       @constructed_building = ConstructedBuilding.new(constructed_building_params)
 
       if @constructed_building.save
-        redirect_back(fallback_location: group_path(@group), notice: "#{@constructed_building.building.name} #{t(:under_construction)}.")
+        return redirect_back(fallback_location: group_path(@group), notice: "#{@constructed_building.building.name} #{t(:under_construction)}.")
       end
     end
-    redirect_back(fallback_location: group_path(@group), alert: "#{Building.find(params[:building_id]).name} #{t(:cant_build)}.")
+    return redirect_back(fallback_location: group_path(@group), alert: "#{Building.find(params[:building_id]).name} #{t(:cant_build)}.")
   end
 
   # DELETE /constructed_buildings/1
