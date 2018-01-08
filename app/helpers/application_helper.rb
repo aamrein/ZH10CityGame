@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def format_currency(number)
-    number_to_currency(number, separator: ',', delimiter: '`', precision: 0)
+    number_to_currency(number, separator: ',', delimiter: '`', precision: 0, unit: '$')
   end
 
   def format_number(number)
