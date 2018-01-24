@@ -15,6 +15,11 @@
       <%= Event.model_name.human(count: 2) %>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false">
+      <%= Task.model_name.human(count: 2) %>
+    </a>
+  </li>
 </ul>
 <div class="tab-content" id="gameTabContent">
   <div class="tab-pane fade show active" id="group" role="tabpanel" aria-labelledby="group-tab">
@@ -26,5 +31,8 @@
   </div>
   <div class="tab-pane fade" id="event" role="tabpanel" aria-labelledby="event-tab">
     <%= render 'events/events', partial: @events %>
+  </div>
+  <div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+    <%= render 'tasks/tasks', partial: @tasks %>
   </div>
 </div>

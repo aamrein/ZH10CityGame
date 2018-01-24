@@ -4,7 +4,7 @@
       <h4><%= link_to constructed_building.building.name, constructed_building.building %></h4>
       <div class="row">
         <div class="col-12">
-          <%= fa_icon 'dollar' %><%= " #{format_number(constructed_building.amount.to_i)}" %>
+          <%= icon 'dollar' %><%= " #{format_number(constructed_building.amount.to_i)}" %>
           <span class="float-right">
             <%= icon_link_to 'search', t(:show), constructed_building.building %>
             <% if constructed_building.under_construction %>
@@ -17,18 +17,18 @@
     <div class="card-body">
       <div class="row">
         <div class="col-6"><%= "#{ConstructedBuilding.human_attribute_name(:constructed_at)}" %></div>
-        <div class="col-6"><%= fa_icon 'clock-o' %><%= " #{format_time(constructed_building.construction_time.localtime)}" %></div>
+        <div class="col-6"><%= icon 'clock-o' %><%= " #{format_time(constructed_building.construction_time.localtime)}" %></div>
         <% if constructed_building.under_construction %>
           <div class="col-6"><%= "#{ConstructedBuilding.human_attribute_name(:remaining_construction_time)}" %></div>
           <div class="col-6"><%= distance_of_time_in_words_to_now(Time.now - constructed_building.remaining_construction_time.seconds) %></div>
         <% end %>
         <div class="col-6"><%= "#{Building.human_attribute_name(:inhabitants)}" %></div>
-        <div class="col-6"><%= fa_icon 'users' %><%= " #{constructed_building.building.inhabitants}" %></div>
+        <div class="col-6"><%= icon 'users' %><%= " #{constructed_building.building.inhabitants}" %></div>
         <div class="col-6"><%= "#{Building.human_attribute_name(:required_building)}" %></div>
         <% unless constructed_building.building.required_building.nil? %>
-          <div class="col-6"><%= fa_icon 'building' %><%= " #{constructed_building.building.required_building.name}" %></div>
+          <div class="col-6"><%= icon 'building' %><%= " #{constructed_building.building.required_building.name}" %></div>
         <% else %>
-          <div class="col-6"><%= fa_icon 'building' %><%= " #{t(:nothing)}" %></div>
+          <div class="col-6"><%= icon 'building' %><%= " #{t(:nothing)}" %></div>
         <% end %>
       </div>
     </div>

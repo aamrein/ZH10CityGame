@@ -6,7 +6,7 @@
     <h4 class="card-title"><%= link_to building.name, building %></h4>
     <div class="row">
       <div class="col-12">
-        <%= fa_icon 'dollar' %><%= " #{building.cost}" %>
+        <%= icon 'dollar' %><%= " #{building.cost}" %>
         <% if current_user.admin? %>
           <span class="float-right">
             <%= icon_link_to 'pencil', t(:edit), edit_building_path(building) %>
@@ -19,13 +19,13 @@
   <div class="card-body">
     <div class="row">
       <div class="col-6"><%= "#{Building.human_attribute_name(:construction_duration)}" %></div>
-      <div class="col-6"><%= fa_icon 'clock-o' %><%= " #{building.construction_duration_min} #{t(:minutes)}" %></div>
+      <div class="col-6"><%= icon 'clock-o' %><%= " #{building.construction_duration_min} #{t(:minutes)}" %></div>
       <div class="col-6"><%= "#{Building.human_attribute_name(:cost_per_hour)}" %></div>
-      <div class="col-6"><%= fa_icon 'dollar' %><%= " #{building.cost_per_hour}" %></div>
+      <div class="col-6"><%= icon 'dollar' %><%= " #{building.cost_per_hour}" %></div>
       <div class="col-6"><%= "#{Building.human_attribute_name(:income_per_hour)}" %></div>
-      <div class="col-6"><%= fa_icon 'dollar' %><%= " #{building.income_per_hour}" %></div>
+      <div class="col-6"><%= icon 'dollar' %><%= " #{building.income_per_hour}" %></div>
       <div class="col-6"><%= "#{Building.human_attribute_name(:inhabitants)}" %></div>
-      <div class="col-6"><%= fa_icon 'users' %><%= " #{building.inhabitants}" %></div>
+      <div class="col-6"><%= icon 'users' %><%= " #{building.inhabitants}" %></div>
     </div>
     <hr>
     <div class="row">

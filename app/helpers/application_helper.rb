@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def icon_link_to(icon, name=nil, options=nil, html_options=nil, &block)
     link_to(options, html_options) do
-      fa_icon("#{icon} 2x", title: name)
+      icon("#{icon} fa-2x", title: name)
     end
   end
 

@@ -25,6 +25,7 @@
         <% if current_user.admin? %>
           <%= active_link_to Game.model_name.human(count: 2), games_path, class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
           <%= active_link_to Event.model_name.human(count: 2), events_path, class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+          <%= active_link_to Task.model_name.human(count: 2), tasks_path, class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
         <% end %>
       </ul>
     </div>

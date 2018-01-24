@@ -6,12 +6,12 @@
             <h4><%= event.name %></h4>
             <div class="row">
               <div class="col-4">
-                <%= fa_icon 'bomb',
+                <%= icon 'bomb',
                             text: "#{event.impact_percent}%",
                             title: "#{Event.human_attribute_name(:impact_percent)}" %>
               </div>
               <div class="col-8">
-                <%= fa_icon 'clock-o',
+                <%= icon 'clock-o',
                             text: "#{event.duration_min} #{t(:minutes)}",
                             title: "#{Event.human_attribute_name(:duration)}" %>
               </div>

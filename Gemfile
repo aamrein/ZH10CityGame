@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.3'
+
 gem 'rails', '~> 5.1'
 gem 'pg', '~> 0.18.4'
 gem 'activerecord-postgresql-adapter'
@@ -12,7 +14,8 @@ gem 'jquery-rails'
 
 gem 'materialize-sass'
 gem 'bootstrap'
-gem 'font-awesome-rails'
+gem 'sass-rails'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem 'active_link_to'
 gem 'carrierwave', '~> 1.0'
 

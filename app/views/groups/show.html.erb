@@ -7,7 +7,7 @@
   </div>
   <div class="col-4 col-md-3">
     <h6 class="float-right action-buttons">
-      <%= fa_icon('info-circle 2x', title: "#{@group.email} | #{@group.phone}", 'data-toggle' => 'modal', 'data-target' => '#infoModal') %>
+      <%= icon('info-circle 2x', title: "#{@group.email} | #{@group.phone}", 'data-toggle' => 'modal', 'data-target' => '#infoModal') %>
       <%= icon_link_to 'pencil', t(:edit), edit_group_path(@group) %>
       <%= icon_link_to 'level-up', t(:back), groups_path %>
     </h6>
@@ -32,6 +32,11 @@
   <li class="nav-item">
     <a class="nav-link" id="not-constructed-tab" data-toggle="tab" href="#not-constructed" role="tab" aria-controls="not-constructed" aria-selected="false">
       <%= t('group.not_constructed_buildings') %>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false">
+      <%= t('group.tasks') %>
     </a>
   </li>
 </ul>
@@ -76,6 +81,14 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+  <div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+    <div class="row">
+      <% @group.task_logs.each do |task_log| %>
+        <%= render partial: 'task_logs/task_log', locals: {task_log: task_log} %>
+      <% end %>
+    </div>
   </div>
 </div>
 
