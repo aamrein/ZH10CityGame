@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206211726) do
+ActiveRecord::Schema.define(version: 20180118195621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,31 @@ ActiveRecord::Schema.define(version: 20171206211726) do
     t.index ["game_id"], name: "index_groups_on_game_id"
   end
 
+  create_table "task_logs", force: :cascade do |t|
+    t.bigint "task_id"
+    t.bigint "group_id"
+    t.datetime "start"
+    t.string "comment"
+    t.boolean "done"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_task_logs_on_group_id"
+    t.index ["task_id"], name: "index_task_logs_on_task_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "location"
+    t.integer "duration_sec"
+    t.integer "value"
+    t.boolean "settlement_immediately"
+    t.string "comment"
+    t.boolean "optional"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -113,5 +138,6 @@ ActiveRecord::Schema.define(version: 20171206211726) do
   add_foreign_key "constructed_buildings", "groups"
   add_foreign_key "event_logs", "events"
   add_foreign_key "groups", "games"
+  add_foreign_key "task_logs", "tasks"
   add_foreign_key "users", "groups"
 end

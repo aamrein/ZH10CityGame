@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_admin
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -47,13 +48,17 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def event_params
-      params.require(:event).permit(:name, :impact_percent, :duration_sec, :comment)
+  def event_params
+    params.require(:event).permit(:name, :impact_percent, :duration_sec, :comment)
+  end
+
+  def authenticate_admin
+    unless (current_user && current_user.admin?)
+      redirect_to root_path, alert: t(:not_authorized)
     end
+  end
 end

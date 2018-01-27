@@ -1,0 +1,69 @@
+<div class="row">
+  <% @tasks.each do |task| %>
+      <div class="col-4">
+        <div class="card">
+          <div class="card-header">
+            <div class="float-right">
+            <% if task.optional %>
+              <span class="badge badge-success badge-pill float-right" title="<%= "#{Task.human_attribute_name(:optional)}" %>">
+                <%= icon 'check' %>
+                <%= "#{Task.human_attribute_name(:optional)}" %>
+              </span>
+            <% else %>
+              <span class="badge badge-warning badge-pill float-right" title="<%= "#{Task.human_attribute_name(:optional)}" %>">
+                <%= icon 'close' %>
+                <%= "#{Task.human_attribute_name(:optional)}" %>
+              </span>
+            <% end %>
+            <br/>
+            <% if task.settlement_immediately %>
+              <span class="badge badge-success badge-pill float-right" title="<%= "#{Task.human_attribute_name(:settlement_immediately)}" %>">
+                <%= icon 'check' %>
+                <%= "#{Task.human_attribute_name(:settlement_immediately)}" %>
+              </span>
+          <% else %>
+              <span class="badge badge-warning badge-pill float-right" title="<%= "#{Task.human_attribute_name(:settlement_immediately)}" %>">
+                <%= icon 'close' %>
+                <%= "#{Task.human_attribute_name(:settlement_immediately)}" %>
+              </span>
+            <% end %>
+            </div>
+            <h4><%= task.name %></h4>
+            <div class="row">
+              <div class="col-4">
+                <%= icon 'dollar', title: "#{Event.human_attribute_name(:impact)}" %>
+                <%= "#{format_number(task.value)}" %>
+              </div>
+              <div class="col-8">
+                <%= icon 'clock-o', title: "#{Event.human_attribute_name(:duration)}" %>
+                <%= "#{task.duration_min} #{t(:minutes)}" %>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12"><%= task.description %></div>
+            </div>
+            <% unless @game.nil? %>
+              <hr/>
+              <form action="<%= add_task_log_path %>" method="get">
+                <div class="form-group">
+                  <select class="form-control form-control-sm" name="group">
+                    <option value="all"><%= t(:all) %></option>
+                    <% @game.groups.each do |group| %>
+                        <option value="<%= group.id %>"><%= group.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+                <input name="game" value="<%= @game.id %>" hidden>
+                <input name="task" value="<%= task.id %>" hidden>
+                <button type="submit" class="btn btn-primary btn-sm pull-right">
+                  <%= t(:schedule_task) %>
+                </button>
+              </form>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

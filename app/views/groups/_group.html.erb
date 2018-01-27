@@ -1,15 +1,15 @@
 <div class="col-12">
   <div class="card">
     <div class="card-header">
-            <span class="badge badge-info badge-pill float-right" title="<%= "#{group.game.start.localtime} - #{group.game.end.localtime}" %>">
-              <%= group.game %>
-            </span>
+      <span class="badge badge-info badge-pill float-right" title="<%= "#{group.game.start.localtime} - #{group.game.end.localtime}" %>">
+        <%= group.game %>
+      </span>
       <h4><%= group.name %></h4>
       <span class="float-right">
-              <%= icon_link_to 'search', t(:show), group %>
+        <%= icon_link_to 'search', t(:show), group %>
         <%= icon_link_to 'pencil', t(:edit), edit_group_path(group) %>
-        <%= icon_link_to 'trash', t(:delete), group, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </span>
+        <%= icon_link_to 'trash', t(:delete), group, method: :delete, data: { confirm: t(:are_you_sure?) } %>
+      </span>
     </div>
     <div class="card-body">
       <div class="row">

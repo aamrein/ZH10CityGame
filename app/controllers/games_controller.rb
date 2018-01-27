@@ -10,6 +10,7 @@ class GamesController < ApplicationController
   # GET /games/1
   def show
     @events = Event.all
+    @tasks = Task.all
   end
 
   # GET /games/new

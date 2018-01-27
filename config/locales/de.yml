@@ -3,11 +3,14 @@ de:
   show: 'Details'
   edit: 'Bearbeiten'
   delete: 'Löschen'
+
   new: 'Neu'
   new_game: 'Neues Spiel'
   new_event: 'Neuer Event'
   new_task: 'Neue Aufgabe'
+
   edit_event: 'Event bearbeiten'
+
   build: 'Bauen'
   back: 'Zurück'
   minutes: 'Minuten'
@@ -27,6 +30,9 @@ de:
     constructed_buildings: 'Gebaute Gebäude'
     not_constructed_buildings: 'Nicht gebaute Gebäude'
     tasks: 'Aufgaben'
+  task_log:
+    open: 'Offen'
+    done: 'Erledigt'
 
   activerecord:
     models:
@@ -72,3 +78,4 @@ de:
       task:
         optional: 'Optional'
         settlement_immediately: 'Sofort verbuchen'
+

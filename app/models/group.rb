@@ -2,6 +2,7 @@ class Group < ApplicationRecord
   belongs_to :game
   belongs_to :user
   has_many :constructed_buildings
+  has_many :task_logs
 
   def balance
     (self.start_balance + total_amount_of_constructed_buildings).round 2

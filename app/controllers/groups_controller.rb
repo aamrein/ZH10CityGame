@@ -60,11 +60,11 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
     @game = Game.find(@group.game_id) unless @group.nil?
-    @buildings = Building.all()
+    @buildings = Building.all
   end
 
   def set_games
-    @games = Game.all()
+    @games = Game.all
   end
 
   def group_params

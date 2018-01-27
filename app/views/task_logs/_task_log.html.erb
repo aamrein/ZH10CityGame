@@ -1,0 +1,47 @@
+<div class="col-4">
+  <div class="card">
+    <div class="card-header">
+      <div class="float-right">
+        <% if task_log.done %>
+          <span class="badge badge-success badge-pill float-right" %>
+            <%= icon 'check' %>
+            <%= "#{t('task_log.done')}" %>
+          </span>
+        <% else %>
+          <span class="badge badge-danger badge-pill float-right" %>
+            <%= icon 'close' %>
+            <%= "#{t('task_log.open')}" %>
+          </span>
+        <% end %>
+        <br/>
+        <% if task_log.task.optional %>
+          <span class="badge badge-success badge-pill float-right" title="<%= "#{Task.human_attribute_name(:optional)}" %>">
+            <%= icon 'check' %>
+            <%= "#{Task.human_attribute_name(:optional)}" %>
+          </span>
+        <% else %>
+          <span class="badge badge-warning badge-pill float-right" title="<%= "#{Task.human_attribute_name(:optional)}" %>">
+            <%= icon 'close' %>
+            <%= "#{Task.human_attribute_name(:optional)}" %>
+          </span>
+        <% end %>
+      </div>
+      <h4><%= task_log.task.name %></h4>
+      <div class="row">
+        <div class="col-4">
+          <%= icon 'dollar', title: "#{Event.human_attribute_name(:impact)}" %>
+          <%= "#{format_number(task_log.task.value)}" %>
+        </div>
+        <div class="col-8">
+          <%= icon 'clock-o', title: "#{Event.human_attribute_name(:duration)}" %>
+          <%= "#{task_log.task.duration_min} #{t(:minutes)}" %>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12"><%= task_log.task.description %></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,7 +17,6 @@ class EventLogsController < ApplicationController
   end
 
   def add
-    p params
     game = Game.find(params[:game])
     if params[:group] == 'all'
       game.groups.each do |group|

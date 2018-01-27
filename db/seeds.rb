@@ -164,3 +164,9 @@ ConstructedBuilding.create([
 EventLog.create([
     {constructed_building_id: 1, event_id: 1, start: DateTime.parse('10/10/2017 8:15'), comment: ''}
                 ])
+
+Task.create([
+    {name: 'Rohrbruch', description: 'Gehe zum Gebäude und ruf den Hauswart an. Die Telefonnummer hängt am Gebäude.',
+     location: 'Belibiges Gebäude', duration_sec: 7200, value: 13150, settlement_immediately: true,
+     comment: 'TelNr. Von Hauswart aufhängen.'}
+            ])
