@@ -1,13 +1,7 @@
-<div class="row">
-  <div class="col-8">
-    <h1><%= Game.model_name.human(count: 2) %></h1>
-  </div>
-  <div class="col-4">
-    <h6 class="float-right action-buttons">
-      <%= icon_link_to 'plus', t(:new), new_game_path %>
-    </h6>
-  </div>
-</div>
+<%= render layout: 'layouts/content_header', locals: {
+    title: Game.model_name.human(count: 2)} do %>
+  <%= icon_link_to "plus", t(:new), new_game_path %>
+<% end %>
 
 <% @games.each do |game| %>
     <div class="row">

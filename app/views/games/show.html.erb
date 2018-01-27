@@ -1,8 +1,9 @@
-<h1><%= @game.name %></h1>
+<%= render layout: 'layouts/content_header', locals: {title: @game.name} do %>
+  <%= icon_link_to 'pencil', t(:edit), edit_game_path(@game) %>
+<% end %>
+
 <p><strong>Start:</strong><%= @game.start %></p>
 <p><strong>Duration:</strong><%= @game.end %></p>
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
 
 <ul class="nav nav-tabs" id="gameTab" role="tablist">
   <li class="nav-item">

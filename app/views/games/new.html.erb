@@ -1,12 +1,5 @@
-<div class="row">
-  <div class="col-8">
-    <h1><%= "#{t(:new_game)}" %></h1>
-  </div>
-  <div class="col-4">
-    <h6 class="float-right action-buttons">
-      <%= icon_link_to 'level-up', t(:back), games_path %>
-    </h6>
-  </div>
-</div>
+<%= render layout: 'layouts/content_header', locals: {title: "#{t(:new_game)}"} do %>
+  <%= icon_link_to 'level-up', t(:back), games_path %>
+<% end %>
 
 <%= render 'form', game: @game %>
