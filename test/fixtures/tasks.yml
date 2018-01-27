@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  location: MyString
+  duration_sec: 1
+  value: 1
+  comment: MyString
+  optional: false
+
+two:
+  name: MyString
+  description: MyString
+  location: MyString
+  duration_sec: 1
+  value: 1
+  comment: MyString
+  optional: false

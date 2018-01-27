@@ -1,0 +1,5 @@
+<%= render layout: 'layouts/content_header', locals: {title: Task.model_name.human(count: 2)} do %>
+  <%= icon_link_to 'plus', t(:new), new_game_path %>
+<% end %>
+
+<%= render 'tasks', partial: @tasks %>

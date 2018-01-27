@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_id: 1
+  group_id: 1
+  start: 2018-01-14 12:56:21
+  comment: MyString
+
+two:
+  task_id: 1
+  group_id: 1
+  start: 2018-01-14 12:56:21
+  comment: MyString
