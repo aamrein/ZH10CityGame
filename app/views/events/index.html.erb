@@ -1,7 +1,5 @@
-<div class="row">
-  <div class="col-12">
-    <h1><%= Event.model_name.human(count: 2) %></h1>
-  </div>
-</div>
+<%= render layout: 'layouts/content_header', locals: {title: Event.model_name.human(count: 2)} do %>
+  <%= icon_link_to 'plus', t(:new), new_event_path %>
+<% end %>
 
 <%= render 'events', partial: @events %>

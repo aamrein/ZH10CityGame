@@ -4,16 +4,20 @@
         <div class="card">
           <div class="card-header">
             <h4><%= event.name %></h4>
+            <% if current_user.admin? %>
+              <span class="float-right">
+                <%= icon_link_to 'pencil', t(:edit), edit_event_path(event) %>
+                <%= icon_link_to 'trash', t(:delete), event, method: :delete, data: { confirm: t(:are_you_sure?) } %>
+              </span>
+            <% end %>
             <div class="row">
               <div class="col-4">
-                <%= icon 'bomb',
-                            text: "#{event.impact_percent}%",
-                            title: "#{Event.human_attribute_name(:impact_percent)}" %>
+                <%= icon 'bomb', title: "#{Event.human_attribute_name(:impact_percent)}" %>
+                <%= "#{event.impact_percent}%" %>
               </div>
               <div class="col-8">
-                <%= icon 'clock-o',
-                            text: "#{event.duration_min} #{t(:minutes)}",
-                            title: "#{Event.human_attribute_name(:duration)}" %>
+                <%= icon 'clock-o', title: "#{Event.human_attribute_name(:duration)}" %>
+                <%= "#{event.duration_min} #{t(:minutes)}" %>
               </div>
             </div>
           </div>

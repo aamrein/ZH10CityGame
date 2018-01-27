@@ -5,11 +5,15 @@ de:
   delete: 'Löschen'
   new: 'Neu'
   new_game: 'Neues Spiel'
+  new_event: 'Neuer Event'
+  new_task: 'Neue Aufgabe'
+  edit_event: 'Event bearbeiten'
   build: 'Bauen'
   back: 'Zurück'
   minutes: 'Minuten'
   all: 'Alle'
   trigger_event: 'Event auslösen'
+  schedule_task: 'Aufgabe erteilen'
   not_authorized: 'Sie sind nicht berechtigt diese Seite zu öffnen!'
   are_you_sure?: 'Sind Sie sicher?'
   no_group: 'Sie sind keiner Gruppe zugeordnet. Bitte wenden Sie sich an Ihren Spielleiter.'
@@ -22,6 +26,7 @@ de:
     can_not_build_first_build_x: "Zuerst %{building_name} bauen."
     constructed_buildings: 'Gebaute Gebäude'
     not_constructed_buildings: 'Nicht gebaute Gebäude'
+    tasks: 'Aufgaben'
 
   activerecord:
     models:
@@ -32,6 +37,9 @@ de:
       event:
         one: 'Event'
         other: 'Events'
+      task:
+        one: 'Aufgabe'
+        other: 'Aufgaben'
       game:
         one: 'Spiel'
         other: 'Spiele'
@@ -61,3 +69,6 @@ de:
       group:
         phone: 'Telefon'
         email: 'Email'
+      task:
+        optional: 'Optional'
+        settlement_immediately: 'Sofort verbuchen'

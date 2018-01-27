@@ -1,5 +1,5 @@
-<h1>New Event</h1>
+<%= render layout: 'layouts/content_header', locals: {title: t(:new_event)} do %>
+  <%= icon_link_to 'level-up', t(:back), events_path %>
+<% end %>
 
 <%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>
