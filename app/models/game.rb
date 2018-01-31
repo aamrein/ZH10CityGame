@@ -15,6 +15,10 @@ class Game < ApplicationRecord
     DateTime.now.between? self.start, self.end
   end
 
+  def is_over?
+    DateTime.now > self.end
+  end
+
   def to_s
     self.name
   end

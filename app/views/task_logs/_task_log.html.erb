@@ -2,7 +2,9 @@
   <div class="card">
     <div class="card-header">
       <div class="float-right">
-        <% if task_log.done %>
+        <% if current_user.admin? %>
+          <%= check_box_tag "task-log-#{task_log.id}", task_log.done, task_log.done, :class => 'task_log_checkbox' %>
+        <% elsif task_log.done %>
           <span class="badge badge-success badge-pill float-right" %>
             <%= icon 'check' %>
             <%= "#{t('task_log.done')}" %>
@@ -45,3 +47,14 @@
     </div>
   </div>
 </div>
+
+<script>
+  $('<%= "#task-log-#{task_log.id}" %>').bind('change', function(){
+      console.log('<%= group_task_log_path(task_log.group_id, task_log) %>');
+      $.ajax({
+          url: '<%= group_task_log_path(task_log.group_id, task_log) %>',
+          type: 'PUT',
+          data: {'task_log': {'done': this.checked}}
+      })
+  })
+</script>

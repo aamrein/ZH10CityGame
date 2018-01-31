@@ -45,11 +45,7 @@ class TaskLogsController < ApplicationController
 
   # PATCH/PUT /task_logs/1
   def update
-    if @task_log.update(task_log_params)
-      redirect_to @task_log, notice: 'Task log was successfully updated.'
-    else
-      render :edit
-    end
+    @task_log.update(task_log_params)
   end
 
   # DELETE /task_logs/1
