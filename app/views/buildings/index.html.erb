@@ -2,12 +2,13 @@
   <div class="col-8">
     <h1><%= Building.model_name.human(count: 2) %></h1>
   </div>
-  <div class="col-4">
-    <h6 class="float-right action-buttons">
-      <%= icon_link_to 'plus', t(:new), new_building_path %>
-      <%= icon_link_to 'level-up', t(:back), buildings_path %>
-    </h6>
-  </div>
+  <% if current_user.admin? %>
+    <div class="col-4">
+      <h6 class="float-right action-buttons">
+        <%= icon_link_to 'plus', t(:new), new_building_path %>
+      </h6>
+    </div>
+  <% end %>
 </div>
 
 <% @categories.each do |category| %>
