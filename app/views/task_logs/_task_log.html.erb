@@ -50,7 +50,6 @@
 
 <script>
   $('<%= "#task-log-#{task_log.id}" %>').bind('change', function(){
-      console.log('<%= group_task_log_path(task_log.group_id, task_log) %>');
       $.ajax({
           url: '<%= group_task_log_path(task_log.group_id, task_log) %>',
           type: 'PUT',

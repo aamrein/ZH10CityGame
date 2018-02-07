@@ -11,6 +11,7 @@ class GamesController < ApplicationController
   def show
     @events = Event.all
     @tasks = Task.all
+    @buildings = Building.all
   end
 
   # GET /games/new

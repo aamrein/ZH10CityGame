@@ -29,16 +29,16 @@
               <hr/>
               <form action="<%= add_event_log_path %>" method="get">
                 <div class="form-group">
-                  <select class="form-control form-control-sm" name="group">
+                  <select class="form-control form-control-sm" name="group" id="<%= "event-#{event.id}" %>">
                     <option value="all"><%= t(:all) %></option>
                     <% @game.groups.each do |group| %>
                         <option value="<%= group.id %>"><%= group.name %></option>
                     <% end %>
                   </select>
-                  <select class="form-control form-control-sm" name="group">
+                  <select class="form-control form-control-sm" name="building">
                     <option value="all"><%= t(:all) %></option>
-                    <% @game.groups.each do |group| %>
-                        <option value="<%= group.id %>"><%= group.name %></option>
+                    <% @buildings.each do |building| %>
+                        <option value="<%= building.id %>"><%= building.name %></option>
                     <% end %>
                   </select>
                 </div>
@@ -54,3 +54,4 @@
       </div>
   <% end %>
 </div>
+

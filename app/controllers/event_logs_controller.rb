@@ -23,7 +23,8 @@ class EventLogsController < ApplicationController
         create_event_log(params, group)
       end
     else
-      create_event_log(params, params[:group])
+      group = Group.find(params[:group])
+      create_event_log(params, group)
     end
     redirect_to game_path(params[:game])
   end
@@ -60,15 +61,24 @@ class EventLogsController < ApplicationController
 
   private
   def create_event_log(params, group)
-    constructed_building = ConstructedBuilding.find_by(group_id: group)
-    unless constructed_building.nil? && !constructed_building.under_construction
-      event_log = EventLog.new(
-          constructed_building: constructed_building,
-          event_id: params[:event].to_i,
-          start: DateTime.now)
-      return event_log.save!
+    if params[:building] == 'all'
+      group.constructed_buildings_finished.each do |constructed_building|
+        event_log = EventLog.new(
+            constructed_building: constructed_building,
+            event_id: params[:event].to_i,
+            start: DateTime.now)
+        event_log.save!
+      end
+    else
+      constructed_building = group.constructed_buildings_finished.select{|constructed_building| constructed_building.building_id == params[:building].to_i}.first
+      unless constructed_building.nil?
+        event_log = EventLog.new(
+            constructed_building: constructed_building,
+            event_id: params[:event].to_i,
+            start: DateTime.now)
+        event_log.save!
+      end
     end
-    false
   end
 
   def set_vars

@@ -15,6 +15,10 @@ class Group < ApplicationRecord
     }
   end
 
+  def constructed_buildings_finished
+    self.constructed_buildings.select{|constructed_building| !constructed_building.under_construction}
+  end
+
   private
   def total_amount_of_constructed_buildings
     total = 0
