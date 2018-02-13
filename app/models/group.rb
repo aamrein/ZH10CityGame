@@ -19,6 +19,10 @@ class Group < ApplicationRecord
     self.constructed_buildings.select{|constructed_building| !constructed_building.under_construction}
   end
 
+  def can_build?(cost)
+    self.balance >= cost
+  end
+
   private
   def total_amount_of_constructed_buildings
     total = 0

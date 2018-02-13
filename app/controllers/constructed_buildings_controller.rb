@@ -9,14 +9,18 @@ class ConstructedBuildingsController < ApplicationController
 
   # POST /constructed_buildings
   def create
-    if @game.is_running?
-      @constructed_building = ConstructedBuilding.new(constructed_building_params)
+    building = Building.find(params[:building_id])
+    unless !building.nil?
+      if @game.is_running? && @group.can_build?(building.cost)
+        @constructed_building = ConstructedBuilding.new(constructed_building_params)
 
-      if @constructed_building.save
-        return redirect_back(fallback_location: group_path(@group), notice: "#{@constructed_building.building.name} #{t(:under_construction)}.")
+        if @constructed_building.save
+          return redirect_back(fallback_location: group_path(@group), notice: "#{@constructed_building.building.name} #{t(:under_construction)}.")
+        end
       end
+      return redirect_back(fallback_location: group_path(@group), alert: "#{building.name} #{t(:cant_build)}.")
     end
-    return redirect_back(fallback_location: group_path(@group), alert: "#{Building.find(params[:building_id]).name} #{t(:cant_build)}.")
+    redirect_back(fallback_location: group_path(@group), alert: "#{params[:building_id]} #{t(:cant_build)}.")
   end
 
   # DELETE /constructed_buildings/1

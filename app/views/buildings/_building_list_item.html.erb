@@ -7,7 +7,7 @@
           <%= icon 'dollar' %><%= " #{format_number(building.cost)}" %>
           <span class="float-right">
             <% unless (defined?(group)).nil? %>
-              <% if building.can_build?(group.constructed_buildings) %>
+              <% if building.can_build?(group.constructed_buildings) && @group.can_build?(building.cost) %>
                 <%= icon_link_to('cogs',
                                  t(:build),
                                  group_constructed_buildings_path(group_id: @group.id, building_id: building.id),
