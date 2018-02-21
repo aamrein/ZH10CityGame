@@ -1,0 +1,14 @@
+var currentLocation = window.location.href;
+
+function updateBalance(){
+    setTimeout(function(){
+        if(currentLocation === window.location.href) {
+            var path = $('h1[name=group_title]').attr('id') + ".json";
+            $.get(path).success(function (data) {
+                $('#group_balance').text(data.balance);
+            });
+            updateBalance();
+        }
+    }, 5000);
+}
+updateBalance();

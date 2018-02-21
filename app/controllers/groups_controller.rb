@@ -19,6 +19,11 @@ class GroupsController < ApplicationController
     unless current_user.admin? || current_user.group.id == params[:id].to_i
       redirect_to groups_path
     end
+    respond_to do |format|
+      format.html
+      format.json
+      #format.json { render json: @group, only: :id, methods: :formatted_balance }
+    end
   end
 
   # GET /groups/new

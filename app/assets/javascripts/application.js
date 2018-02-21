@@ -3,5 +3,7 @@
 //= require popper
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
 
+//= require flash_message_fade
+//= require task_logs
+//= require tasks
