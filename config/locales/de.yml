@@ -75,6 +75,8 @@ de:
       group:
         phone: 'Telefon'
         email: 'Email'
+        balance: 'Kontostand'
+        points: 'Punkte'
       task:
         optional: 'Optional'
         settlement_immediately: 'Sofort verbuchen'

@@ -8,6 +8,11 @@ class Group < ApplicationRecord
     (self.start_balance + total_amount_of_constructed_buildings + total_amount_of_tasks).round 2
   end
 
+  def points
+    self.balance +
+        self.constructed_buildings.inject(0){|sum, constructed_building| sum + constructed_building.building.cost}
+  end
+
   def constructable_buildings
     Building.all.select{
       |building| self.constructed_buildings.none? {
