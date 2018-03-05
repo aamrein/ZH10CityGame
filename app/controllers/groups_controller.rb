@@ -12,6 +12,10 @@ class GroupsController < ApplicationController
         redirect_to group_path(current_user.group)
       end
     end
+    respond_to do |format|
+      format.html
+      format.json { render json: @groups, except: [:created_at, :updated_at], methods: [:balance, :points] }
+    end
   end
 
   # GET /groups/1
