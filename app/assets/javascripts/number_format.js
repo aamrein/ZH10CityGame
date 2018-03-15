@@ -3,7 +3,7 @@ var currencyFormatter = new Intl.NumberFormat('de-CH', {
     currency: 'USD'
 });
 
-var numberFormatter = new Intl.NumberFormat('de-CH', {'maximumSignificantDigits': 0});
+var numberFormatter = new Intl.NumberFormat('de-CH', {'maximumFractionDigits': 0});
 
 var updateElements = function (className, formatter) {
     Array.from(document.getElementsByClassName(className))
