@@ -5,7 +5,11 @@ function updateBalance(){
         if(currentLocation === window.location.href) {
             var path = $('h1[name=group_title]').attr('id') + ".json";
             $.get(path).success(function (data) {
-                $('#group_balance').text(data.balance);
+                var element = document.getElementById('group_balance').children[1];
+                element.innerHTML = data.balance;
+
+                var event = new Event("turbolinks:load");
+                document.dispatchEvent(event);
             });
             updateBalance();
         }

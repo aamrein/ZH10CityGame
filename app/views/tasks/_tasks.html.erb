@@ -32,7 +32,7 @@
             <div class="row">
               <div class="col-4">
                 <%= icon 'dollar', title: "#{Event.human_attribute_name(:impact)}" %>
-                <%= "#{format_number(task.value)}" %>
+                <span class="number-format"><%= task.value %></span>
               </div>
               <div class="col-8">
                 <%= icon 'clock-o', title: "#{Event.human_attribute_name(:duration)}" %>

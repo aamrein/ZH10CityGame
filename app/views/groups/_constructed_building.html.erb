@@ -4,7 +4,8 @@
       <h4><%= link_to constructed_building.building.name, constructed_building.building %></h4>
       <div class="row">
         <div class="col-12">
-          <%= icon 'dollar' %><%= " #{format_number(constructed_building.amount.to_i)}" %>
+          <%= icon 'dollar' %>
+          <span class="number-format"><%= constructed_building.amount.to_i %></span>
           <span class="float-right">
             <%= icon_link_to 'search', t(:show), constructed_building.building %>
             <% if constructed_building.under_construction %>

@@ -1,3 +1,0 @@
-<%=
-  "#{@group.as_json(only: :id).merge({'balance':format_currency(@group.balance)}).to_json}".html_safe
-%>

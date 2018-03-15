@@ -7,3 +7,4 @@
 //= require flash_message_fade
 //= require task_logs
 //= require tasks
+//= require number_format

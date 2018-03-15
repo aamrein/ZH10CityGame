@@ -4,7 +4,8 @@
       <h4><%= link_to building.name, building %></h4>
       <div class="row">
         <div class="col-12">
-          <%= icon 'dollar' %><%= " #{format_number(building.cost)}" %>
+          <%= icon 'dollar' %>
+          <span class="number-format"><%= building.cost %></span>
           <span class="float-right">
             <% unless (defined?(group)).nil? %>
               <% if building.can_build?(group.constructed_buildings) && @group.can_build?(building.cost) %>
@@ -28,9 +29,9 @@
         <div class="col-6"><%= "#{Building.human_attribute_name(:construction_duration)}" %></div>
         <div class="col-6"><%= icon 'clock-o' %><%= " #{building.construction_duration_min} #{t(:minutes)}" %></div>
         <div class="col-6"><%= "#{Building.human_attribute_name(:cost_per_hour)}" %></div>
-        <div class="col-6"><%= icon 'dollar' %><%= " #{format_number(building.cost_per_hour)}" %></div>
+        <div class="col-6"><%= icon 'dollar' %><span class="number-format"><%= building.cost_per_hour %></span></div>
         <div class="col-6"><%= "#{Building.human_attribute_name(:income_per_hour)}" %></div>
-        <div class="col-6"><%= icon 'dollar' %><%= " #{format_number(building.income_per_hour)}" %></div>
+        <div class="col-6"><%= icon 'dollar' %><span class="number-format"><%= building.income_per_hour %></span></div>
         <div class="col-6"><%= "#{Building.human_attribute_name(:inhabitants)}" %></div>
         <div class="col-6"><%= icon 'users' %><%= " #{building.inhabitants}" %></div>
         <div class="col-6"><%= "#{Building.human_attribute_name(:required_building)}" %></div>

@@ -25,8 +25,7 @@ class GroupsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json
-      #format.json { render json: @group, only: :id, methods: :formatted_balance }
+      format.json { render json: @group, only: :id, methods: [:balance, :points] }
     end
   end
 
