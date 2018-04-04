@@ -29,6 +29,12 @@
             <% end %>
             </div>
             <h4><%= task.name %></h4>
+            <% if current_user.admin? %>
+              <span class="float-right">
+                <%= icon_link_to 'pencil', t(:edit), edit_task_path(task) %>
+                <%= icon_link_to 'trash', t(:delete), task, method: :delete, data: { confirm: t(:are_you_sure?) } %>
+              </span>
+            <% end %>
             <div class="row">
               <div class="col-4">
                 <%= icon 'dollar', title: "#{Event.human_attribute_name(:impact)}" %>
