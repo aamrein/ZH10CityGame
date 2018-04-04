@@ -78,6 +78,9 @@ de:
         balance: 'Kontostand'
         points: 'Punkte'
       task:
+        duration_min: 'Dauer in Minuten'
+        value: 'Betrag'
+        comment: 'Kommentar'
         optional: 'Optional'
         settlement_immediately: 'Sofort verbuchen'
 

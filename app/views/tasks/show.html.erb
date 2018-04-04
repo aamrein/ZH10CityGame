@@ -16,12 +16,12 @@
 </p>
 
 <p>
-  <strong>Duration sec:</strong>
-  <%= @task.duration_sec %>
+  <strong>Duration min:</strong>
+  <%= @task.duration_min %>
 </p>
 
 <p>
-  <strong>Cost:</strong>
+  <strong>Value:</strong>
   <%= @task.value %>
 </p>
 
@@ -33,6 +33,11 @@
 <p>
   <strong>Optional:</strong>
   <%= @task.optional %>
+</p>
+
+<p>
+  <strong>Settlement Immediately:</strong>
+  <%= @task.settlement_immediately %>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |

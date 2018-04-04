@@ -27,13 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :duration_sec %>
-    <%= form.number_field :duration_sec, id: :task_duration_sec %>
+    <%= form.label :duration_min %>
+    <%= form.number_field :duration_min, id: :task_duration_min %>
   </div>
 
   <div class="field">
-    <%= form.label :cost %>
-    <%= form.number_field :cost, id: :task_cost %>
+    <%= form.label :value %>
+    <%= form.number_field :value, id: :task_cost %>
   </div>
 
   <div class="field">
@@ -44,6 +44,13 @@
   <div class="field">
     <%= form.label :optional %>
     <%= form.check_box :optional, id: :task_optional %>
+    <p>Der Betrag wird beim Spielende automatisch verbucht, wenn eine Aufgabe nicht als Optional markiert ist. Dies ist nur bei negativen Beträgen sinnvoll.</p>
+  </div>
+
+  <div class="field">
+    <%= form.label :settlement_immediately %>
+    <%= form.check_box :settlement_immediately, id: :task_settlement_immediately %>
+    <p>Beim erledigen wird der Betrag unmittelbar verbucht.</p>
   </div>
 
   <div class="actions">

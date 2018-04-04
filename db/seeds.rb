@@ -167,6 +167,6 @@ EventLog.create([
 
 Task.create([
     {name: 'Rohrbruch', description: 'Gehe zum Gebäude und ruf den Hauswart an. Die Telefonnummer hängt am Gebäude.',
-     location: 'Belibiges Gebäude', duration_sec: 7200, value: 13150, settlement_immediately: true,
+     location: 'Belibiges Gebäude', duration_min: 120, value: 13150, settlement_immediately: true,
      comment: 'TelNr. Von Hauswart aufhängen.'}
             ])
