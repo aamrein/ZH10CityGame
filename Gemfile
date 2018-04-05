@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.3.3'
 
-gem 'rails', '~> 5.1'
-gem 'pg', '~> 0.18.4'
+gem 'rails', '~> 5.1', '>= 5.1.6'
+gem 'pg'
 gem 'activerecord-postgresql-adapter'
 gem 'activerecord'
 gem 'devise'
@@ -15,9 +15,9 @@ gem 'jquery-rails'
 gem 'materialize-sass'
 gem 'bootstrap'
 gem 'sass-rails'
-gem 'font-awesome-sass', '~> 4.7.0'
+gem 'font-awesome-sass'
 gem 'active_link_to'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
@@ -37,7 +37,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
