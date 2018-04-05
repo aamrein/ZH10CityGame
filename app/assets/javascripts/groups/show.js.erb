@@ -1,18 +1,57 @@
-var currentLocation = window.location.href;
+const element = document.getElementById('group_balance').children[1];
+let currentLocation = window.location.href;
 
-function updateBalance(){
-    setTimeout(function(){
+let timeStart = 0;
+let timeLast = 0;
+let balanceStart = 0;
+let balanceLast = 0;
+let nextUpdateIn = 1000;
+
+function sendUpdateEvent() {
+    const event = new Event("turbolinks:load");
+    document.dispatchEvent(event);
+}
+
+function updateValues(balance) {
+    if(balanceStart === 0) {
+        timeStart = Date.now();
+        balanceStart = balance;
+    }
+    timeLast = Date.now();
+    balanceLast = balance;
+}
+
+function interpolateBalance(){
+    if(balanceStart !== 0 && balanceLast !== 0) {
+        const timeDiff = timeLast - timeStart;
+        const balanceDiff = balanceLast - balanceStart;
+        if(timeDiff !== 0) {
+            element.innerHTML = balanceStart + balanceDiff / (timeDiff * 1000);
+            sendUpdateEvent();
+        }
+    }
+    setTimeout(function() {
         if(currentLocation === window.location.href) {
-            var path = $('h1[name=group_title]').attr('id') + ".json";
-            $.get(path).success(function (data) {
-                var element = document.getElementById('group_balance').children[1];
-                element.innerHTML = data.balance;
+            interpolateBalance()
+        }
+    }, 1000);
+}
+interpolateBalance()
 
-                var event = new Event("turbolinks:load");
-                document.dispatchEvent(event);
+function updateBalance() {
+    if(nextUpdateIn < 60000) {
+        nextUpdateIn = nextUpdateIn*2;
+    }
+    setTimeout(function() {
+        if(currentLocation === window.location.href) {
+            const path = $('h1[name=group_title]').attr('id') + ".json";
+            $.get(path).success(function (data) {
+                element.innerHTML = data.balance;
+                updateValues(data.balance);
+                sendUpdateEvent();
             });
             updateBalance();
         }
-    }, 5000);
+    }, nextUpdateIn);
 }
 updateBalance();
