@@ -4,6 +4,9 @@ class Group < ApplicationRecord
   has_many :constructed_buildings
   has_many :task_logs
 
+  validates :name, :presence => true
+  validates :start_balance, :presence => true
+
   def balance
     (self.start_balance + total_amount_of_constructed_buildings + total_amount_of_tasks).round 2
   end
