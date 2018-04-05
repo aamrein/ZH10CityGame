@@ -91,6 +91,6 @@ class EventLogsController < ApplicationController
   end
 
   def event_log_params
-    params.require(:event_log).permit(:constructed_building_id, :event_id, :start, :comment)
+    params.require(:event_log).permit(:constructed_building_id, :event_id, :start, :end, :comment)
   end
 end
