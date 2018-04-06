@@ -15,7 +15,7 @@ gem 'jquery-rails'
 gem 'materialize-sass'
 gem 'bootstrap'
 gem 'sass-rails'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '<5'
 gem 'active_link_to'
 gem 'carrierwave'
 
