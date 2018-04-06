@@ -38,7 +38,7 @@ class ConstructedBuilding < ApplicationRecord
     self.event_logs.each do |event_log|
       game = self.group.game
       if self.construction_time.between?(game.start, game.start + game.duration.hours) then
-        event_duration_h = event_log.event.duration_sec.to_f / 3600
+        event_duration_h = event_log.event.duration_min.to_f / 60
         duration_till_event = (utc_now - event_log.start.getutc) / 3600
         duration_game_limited = limit_duration(utc_now, game,duration_till_event)
         duration_limited = duration_game_limited > event_duration_h ? event_duration_h : duration_game_limited

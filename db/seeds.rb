@@ -152,7 +152,7 @@ Building.create(
      comment: 'Das Verkehrsnetz sorgt dafür, dass alle Stadtbewohner sich schneller fortbewegen können. Dieses Gebäude ist erforderlich für den Bau von mehr als 15 Gebäuden.'})
 
 Event.create([
-    {name: 'Erdbeben', impact_percent: 80, duration_sec: 600,
+    {name: 'Erdbeben', impact_percent: 80, duration_min: 10,
      comment: 'Das Erdbeben beschädigt alle Gebäude. Der Zustand wird auf 80% reduziert.'}
              ])
 

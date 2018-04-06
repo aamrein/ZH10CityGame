@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :impact_percent, :duration_sec, :comment)
+    params.require(:event).permit(:name, :impact_percent, :duration_min, :comment)
   end
 
   def authenticate_admin

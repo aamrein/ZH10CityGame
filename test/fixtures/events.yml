@@ -3,11 +3,11 @@
 one:
   name: one
   impact_percent: 10
-  duration_sec: 60
+  duration_min: 1
   comment: one
 
 two:
   name: two
   impact_percent: 20
-  duration_sec: 3600
+  duration_min: 60
   comment: two
