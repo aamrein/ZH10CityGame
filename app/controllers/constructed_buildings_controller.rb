@@ -10,10 +10,9 @@ class ConstructedBuildingsController < ApplicationController
   # POST /constructed_buildings
   def create
     building = Building.find(params[:building_id])
-    unless !building.nil?
+    unless building.nil?
       if @game.is_running? && @group.can_build?(building.cost)
         @constructed_building = ConstructedBuilding.new(constructed_building_params)
-
         if @constructed_building.save
           return redirect_back(fallback_location: group_path(@group), notice: "#{@constructed_building.building.name} #{t(:under_construction)}.")
         end
