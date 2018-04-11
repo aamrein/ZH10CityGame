@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/add_event_log', to: 'event_logs#add'
   get '/add_task_log', to: 'task_logs#add'
+  get '/start_task_log', to: 'task_logs#start'
 
   devise_for :users
   root to: 'groups#index'

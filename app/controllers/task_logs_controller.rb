@@ -20,7 +20,6 @@ class TaskLogsController < ApplicationController
   end
 
   def add
-    p params
     if params[:group] == 'all'
       game = Game.find(params[:game])
       game.groups.each do |group|
@@ -45,6 +44,9 @@ class TaskLogsController < ApplicationController
 
   # PATCH/PUT /task_logs/1
   def update
+    unless params[:task_log].nil? && params[:task_log][:done].nil?
+      set_end_to_now
+    end
     @task_log.update(task_log_params)
   end
 
@@ -54,12 +56,24 @@ class TaskLogsController < ApplicationController
     redirect_to task_logs_url, notice: 'Task log was successfully destroyed.'
   end
 
+  def start
+    task_log = TaskLog.find(params[:task_log_id])
+    if task_log.start.nil?
+      task_log.start = DateTime.now
+      task_log.save!
+      redirect_back fallback_location: root_path, notice: 'Task log was successfully started.'
+    else
+      redirect_back fallback_location: root_path, alert: 'Task log was already started.'
+    end
+
+  end
+
   private
   def create_task_log(params, group_id)
     task_log = TaskLog.new(
         task: Task.find(params[:task]),
         group_id: group_id,
-        start: DateTime.now,
+        start: nil,
         comment: '',
         done: false
     )
@@ -71,6 +85,14 @@ class TaskLogsController < ApplicationController
   end
 
   def task_log_params
-    params.require(:task_log).permit(:task_id, :group_id, :start, :comment, :done)
+    params.require(:task_log).permit(:task_id, :group_id, :start, :end, :comment, :done)
+  end
+
+  def set_end_to_now
+    if params[:task_log][:done] == 'true'
+      params[:task_log][:end] = DateTime.now
+    else
+      params[:task_log][:end] = nil
+    end
   end
 end

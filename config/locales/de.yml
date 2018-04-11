@@ -17,6 +17,7 @@ de:
   all: 'Alle'
   trigger_event: 'Event auslösen'
   schedule_task: 'Aufgabe erteilen'
+  start_task: 'Aufgabe starten'
   not_authorized: 'Sie sind nicht berechtigt diese Seite zu öffnen!'
   are_you_sure?: 'Sind Sie sicher?'
   no_group: 'Sie sind keiner Gruppe zugeordnet. Bitte wenden Sie sich an Ihren Spielleiter.'
@@ -82,5 +83,6 @@ de:
         value: 'Betrag'
         comment: 'Kommentar'
         optional: 'Optional'
+        obligation: 'Pflicht'
         settlement_immediately: 'Sofort verbuchen'
 

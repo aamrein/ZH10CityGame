@@ -18,13 +18,11 @@
         <br/>
         <% if task_log.task.optional %>
           <span class="badge badge-success badge-pill float-right" title="<%= "#{Task.human_attribute_name(:optional)}" %>">
-            <%= icon 'check' %>
             <%= "#{Task.human_attribute_name(:optional)}" %>
           </span>
         <% else %>
-          <span class="badge badge-warning badge-pill float-right" title="<%= "#{Task.human_attribute_name(:optional)}" %>">
-            <%= icon 'close' %>
-            <%= "#{Task.human_attribute_name(:optional)}" %>
+          <span class="badge badge-danger badge-pill float-right" title="<%= "#{Task.human_attribute_name(:optional)}" %>">
+            <%= "#{Task.human_attribute_name(:obligation)}" %>
           </span>
         <% end %>
       </div>
@@ -42,7 +40,18 @@
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-12"><%= task_log.task.description %></div>
+        <div class="col-12">
+          <% if task_log.started %>
+            <%= task_log.task.description %>
+          <% else %>
+            <form action="<%= start_task_log_path %>" method="get">
+              <input name="task_log_id" value="<%= task_log.id %>" hidden>
+              <button type="submit" class="btn btn-default btn-sm pull-right">
+                <%= t(:start_task) %>
+              </button>
+            </form>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
