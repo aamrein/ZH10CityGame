@@ -3,39 +3,39 @@
   <%= icon_link_to "plus", t(:new), new_game_path %>
 <% end %>
 
-<% @games.each do |game| %>
-    <div class="row">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card">
-          <div class="card-header">
-            <div class="float-right">
-              <% if game.is_running? %>
-                <span class="badge badge-success badge-pill float-right" %>
-                  <%= icon 'clock' %>
-                  <%= "#{Game.human_attribute_name('running')}" %>
-                </span>
-              <% end %>
-            </div>
-            <h4 class="card-title"><%= game.name %></h4>
-            <div class="row pull-right">
-              <%= icon_link_to 'search', t(:show), game %>
-              <% if current_user.admin? %>
-                  <%= icon_link_to 'pencil', t(:edit), edit_game_path(game) %>
-                  <%= icon_link_to 'trash', t(:delete), game, method: :delete, data: { confirm: :are_you_sure? } %>
-              <% end %>
+<div class="row">
+  <% @games.each do |game| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <div class="float-right">
+            <% if game.is_running? %>
+              <span class="badge badge-success badge-pill float-right" %>
+                <%= icon 'clock' %>
+                <%= "#{Game.human_attribute_name('running')}" %>
               </span>
-            </div>
+            <% end %>
           </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:start)}" %></div>
-              <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{format_date_time(game.start)}" %></div>
-              <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:duration)}" %></div>
-              <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{game.duration} h" %></div>
-            </div>
+          <h4 class="card-title"><%= game.name %></h4>
+          <div class="row pull-right">
+            <%= icon_link_to 'search', t(:show), game %>
+            <% if current_user.admin? %>
+                <%= icon_link_to 'pencil', t(:edit), edit_game_path(game) %>
+                <%= icon_link_to 'trash', t(:delete), game, method: :delete, data: { confirm: :are_you_sure? } %>
+            <% end %>
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:start)}" %></div>
+            <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{format_date_time(game.start)}" %></div>
+            <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:duration)}" %></div>
+            <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{game.duration} h" %></div>
+          </div>
 
-          </div>
         </div>
       </div>
     </div>
-<% end %>
+  <% end %>
+</div>
