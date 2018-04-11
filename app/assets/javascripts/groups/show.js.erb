@@ -24,9 +24,10 @@ function updateValues(balance) {
 function interpolateBalance(){
     if(balanceStart !== 0 && balanceLast !== 0) {
         const timeDiff = timeLast - timeStart;
+        const timeUntil = Date.now() -timeStart;
         const balanceDiff = balanceLast - balanceStart;
         if(timeDiff !== 0) {
-            element.innerHTML = balanceStart + balanceDiff / (timeDiff * 1000);
+            element.innerHTML = "" + (Number(balanceStart) + balanceDiff * timeUntil / timeDiff);
             sendUpdateEvent();
         }
     }
