@@ -2,8 +2,8 @@
   <%= icon_link_to 'pencil', t(:edit), edit_game_path(@game) %>
 <% end %>
 
-<p><strong>Start:</strong><%= @game.start %></p>
-<p><strong>Duration:</strong><%= @game.end %></p>
+<p><strong>Start:</strong><%= " #{format_date_time(@game.start.localtime)}" %></p>
+<p><strong>Duration:</strong><%= " #{format_date_time(@game.end.localtime)}" %></p>
 
 <ul class="nav nav-tabs" id="gameTab" role="tablist">
   <li class="nav-item">

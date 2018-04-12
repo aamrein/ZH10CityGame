@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-12">
           <%= icon 'dollar' %>
-          <span class="number-format"><%= constructed_building.amount.to_i %></span>
+          <span class="number-format"><%= constructed_building.amount.to_i + constructed_building.building.cost.to_i %></span>
           <span class="float-right">
             <%= icon_link_to 'search', t(:show), constructed_building.building %>
             <% if constructed_building.under_construction %>

@@ -29,7 +29,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:start)}" %></div>
-            <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{format_date_time(game.start)}" %></div>
+            <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{format_date_time(game.start.localtime)}" %></div>
             <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:duration)}" %></div>
             <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{game.duration} h" %></div>
           </div>
