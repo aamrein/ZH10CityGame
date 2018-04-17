@@ -16,6 +16,10 @@ class Group < ApplicationRecord
         self.constructed_buildings.inject(0){|sum, constructed_building| sum + constructed_building.building.cost}
   end
 
+  def population
+    self.constructed_buildings.inject(0){|sum, constructed_building| sum + constructed_building.building.inhabitants}
+  end
+
   def constructable_buildings
     Building.all.select{
       |building| self.constructed_buildings.none? {
