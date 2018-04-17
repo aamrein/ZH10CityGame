@@ -42,9 +42,10 @@ div.actions {
 }
 
 .notice {
-  position: absolute;
-  top: 55px;
-  left: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: -100px;
+  max-width: 300px;
   transform: translate(-50%, 0);
   border: 2px solid green;
   border-radius: 3px;
