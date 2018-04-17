@@ -6,7 +6,7 @@
       </span>
       <h4><%= group.name %></h4>
       <span class="badge badge-<%= group.building_ban ? 'danger' : 'info'%> badge-pill" title="<%= "#{group.game.start.localtime} - #{group.game.end.localtime}" %>">
-        <%= icon_link_to 'ban', t(:show), group %>
+        <%= "#{Group.human_attribute_name(:bauilding_ban)}: " %>
         <%= check_box_tag "building-ban-#{group.id}", group.building_ban, group.building_ban %>
       </span>
       <span class="float-right">

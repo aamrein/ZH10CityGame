@@ -63,6 +63,7 @@ de:
         construction_duration: 'Konstruktionsdauer'
         required_building: 'Benötigtes Gebäude'
         comment: 'Kommentar'
+        building_ban: 'Bausperre'
       constructed_building:
         constructed_at: 'Gebaut am'
         remaining_construction_time: 'Verbleibende Bauzeit'
