@@ -1,10 +1,14 @@
 <div class="col-12">
   <div class="card">
-    <div class="card-header">
+    <div class="card-header bg-<%= group.building_ban ? 'danger' : 'light'%>">
       <span class="badge badge-info badge-pill float-right" title="<%= "#{group.game.start.localtime} - #{group.game.end.localtime}" %>">
         <%= group.game %>
       </span>
       <h4><%= group.name %></h4>
+      <span class="badge badge-<%= group.building_ban ? 'danger' : 'info'%> badge-pill" title="<%= "#{group.game.start.localtime} - #{group.game.end.localtime}" %>">
+        <%= icon_link_to 'ban', t(:show), group %>
+        <%= check_box_tag "building-ban-#{group.id}", group.building_ban, group.building_ban %>
+      </span>
       <span class="float-right">
         <%= icon_link_to 'search', t(:show), group %>
         <%= icon_link_to 'pencil', t(:edit), edit_group_path(group) %>
@@ -22,3 +26,13 @@
     </div>
   </div>
 </div>
+
+<script>
+    $('<%= "#building-ban-#{group.id}" %>').bind('change', function(){
+        $.ajax({
+            url: '<%= group_path(group.id) %>',
+            type: 'PUT',
+            data: {'group': {'building_ban': this.checked}}
+        })
+    })
+</script>

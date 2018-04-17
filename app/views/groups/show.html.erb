@@ -23,6 +23,12 @@
   </div>
 </div>
 
+<% if @group.building_ban %>
+  <div class="building_ban_banner">
+    <h5>Das Bauen von Gebäuden ist momentan nicht möglich. Dies wurde von der Spielleitung verordnet.</h5>
+  </div>
+<% end %>
+
 <ul class="nav nav-tabs" id="groupTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="constructed-tab" data-toggle="tab" href="#constructed" role="tab" aria-controls="constructed" aria-selected="true">

@@ -28,7 +28,7 @@ class Group < ApplicationRecord
   end
 
   def can_build?(cost)
-    self.balance >= cost
+    self.balance >= cost && !self.building_ban
   end
 
   private

@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   # GET /groups
   def index
     if current_user.admin?
-      @groups = Group.all
+      @groups = Group.all.order(:id)
     else
       unless current_user.group.nil?
         redirect_to group_path(current_user.group)
@@ -52,7 +52,10 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   def update
     if @group.update(group_params)
-      redirect_to @group, notice: 'Group was successfully updated.'
+      respond_to do |format|
+        format.js { redirect_back fallback_location: @group, notice: 'Group was successfully updated.'}
+        format.html { redirect_to @group, notice: 'Group was successfully updated.'}
+      end
     else
       render :edit
     end
@@ -76,7 +79,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:game_id, :name, :email, :phone, :start_balance, :comment)
+    params.require(:group).permit(:game_id, :name, :email, :phone, :start_balance, :building_ban, :comment)
   end
 
   def authenticate_admin
