@@ -5,7 +5,7 @@
         </span>
     <h4 class="card-title"><%= link_to building.name, building %></h4>
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 one-line">
         <%= icon 'dollar' %><%= " #{building.cost}" %>
         <% if current_user.admin? %>
           <span class="float-right">

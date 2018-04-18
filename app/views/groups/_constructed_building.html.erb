@@ -3,7 +3,7 @@
     <div class="card-header">
       <h4><%= link_to constructed_building.building.name, constructed_building.building %></h4>
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 one-line">
           <%= icon 'dollar' %>
           <span class="number-format"><%= constructed_building.amount.to_i + constructed_building.building.cost.to_i %></span>
           <span class="float-right">
