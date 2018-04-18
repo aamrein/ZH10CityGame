@@ -54,6 +54,16 @@
         </div>
       </div>
     </div>
+    <% if task_log.started %>
+    <div class="card-footer">
+      <% if task_log.on_time %>
+        <strong><%= t(:remaining) %>:</strong>
+        <%= " #{distance_of_time_in_words_to_now(Time.now - task_log.remaining_time.seconds)}" %>
+      <% else %>
+        <strong><%= t(:time_is_up) %>.</strong>
+      <% end %>
+    </div>
+    <% end %>
   </div>
 </div>
 

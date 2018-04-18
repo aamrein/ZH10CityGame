@@ -22,6 +22,8 @@ de:
   are_you_sure?: 'Sind Sie sicher?'
   no_group: 'Sie sind keiner Gruppe zugeordnet. Bitte wenden Sie sich an Ihren Spielleiter.'
   nothing: 'keines'
+  remaining: 'Verbleibend'
+  time_is_up: 'Die Zeit ist abgelaufen'
 
   under_construction: 'wird gebaut'
   cant_build: 'kann nicht gebaut werden'
