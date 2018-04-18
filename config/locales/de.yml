@@ -74,6 +74,7 @@ de:
         duration: 'Dauer bis der Schaden repariert ist.'
       game:
         start: 'Start'
+        end: 'Ende'
         duration: 'Dauer'
         amount_per_inhabitants_per_hour: 'Einnahmen pro Person und Stunde'
         running: 'läuft'

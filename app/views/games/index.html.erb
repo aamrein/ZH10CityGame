@@ -5,7 +5,7 @@
 
 <div class="row">
   <% @games.each do |game| %>
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-md-12 col-lg-6">
       <div class="card">
         <div class="card-header">
           <div class="float-right">
@@ -30,8 +30,15 @@
           <div class="row">
             <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:start)}" %></div>
             <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{format_date_time(game.start.localtime)}" %></div>
-            <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:duration)}" %></div>
-            <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{game.duration} h" %></div>
+            <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:end)}" %></div>
+            <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{format_date_time(game.end.localtime)}" %></div>
+            <% if game.is_running? %>
+              <div class="col-6 col-sm-4"><%= "#{t(:remaining)}" %></div>
+              <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{distance_of_time_in_words_to_now(game.end.localtime)}" %></div>
+            <% else %>
+              <div class="col-6 col-sm-4"><%= "#{Game.human_attribute_name(:duration)}" %></div>
+              <div class="col-6 col-sm-8"><%= icon 'clock-o' %><%= " #{game.duration} h" %></div>
+            <% end %>
           </div>
 
         </div>
