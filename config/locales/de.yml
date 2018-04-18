@@ -82,6 +82,7 @@ de:
         email: 'Email'
         balance: 'Kontostand'
         points: 'Punkte'
+        population: 'Bevölkerung'
       task:
         duration_min: 'Dauer in Minuten'
         value: 'Betrag'

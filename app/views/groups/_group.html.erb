@@ -20,6 +20,8 @@
         <div class="col-6"><%= "#{Group.human_attribute_name(:email)}: #{group.email}" %></div>
         <div class="col-6"><%= "#{Group.human_attribute_name(:balance)}: " %><%= icon 'dollar' %><span class="number-format"><%= group.balance %></span></div>
         <div class="col-6"><%= "#{Group.human_attribute_name(:phone)}: #{group.phone}" %></div>
+        <div class="col-6"><%= "#{Group.human_attribute_name(:population)}: " %><span class="number-format"><%= group.population %></div>
+        <div class="col-6"></div>
         <div class="col-6"><%= "#{Group.human_attribute_name(:points)}: " %><span class="number-format"><%= group.points %></div>
         <div class="col-12"><%= group.comment %></div>
       </div>
