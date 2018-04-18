@@ -2,7 +2,7 @@ class Group < ApplicationRecord
   belongs_to :game
   belongs_to :user
   has_many :constructed_buildings
-  has_many :task_logs
+  has_many :task_logs, -> { order(:id) }
 
   validates :name, :presence => true
   validates :start_balance, :presence => true
@@ -21,14 +21,14 @@ class Group < ApplicationRecord
   end
 
   def constructable_buildings
-    Building.all.select{
+    Building.all.order(:id).select{
       |building| self.constructed_buildings.none? {
           |constructed_building| constructed_building.building_id == building.id}
     }
   end
 
   def constructed_buildings_finished
-    self.constructed_buildings.select{|constructed_building| !constructed_building.under_construction}
+    self.constructed_buildings.order(:id).select{|constructed_building| !constructed_building.under_construction}
   end
 
   def can_build?(cost)

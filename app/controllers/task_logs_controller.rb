@@ -3,7 +3,7 @@ class TaskLogsController < ApplicationController
 
   # GET /task_logs
   def index
-    @task_logs = TaskLog.all
+    @task_logs = TaskLog.all.order(:id)
   end
 
   # GET /task_logs/1
