@@ -18,7 +18,7 @@
       <tr>
         <td><%= task_log.task_id %></td>
         <td><%= task_log.group_id %></td>
-        <td><%= task_log.start %></td>
+        <td><%= task_log.start.localtime %></td>
         <td><%= task_log.comment %></td>
         <td><%= link_to 'Show', task_log %></td>
         <td><%= link_to 'Edit', edit_task_log_path(task_log) %></td>
