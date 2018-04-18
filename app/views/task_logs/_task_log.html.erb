@@ -35,9 +35,15 @@
         <div class="col-8">
           <%= icon 'clock-o', title: "#{Event.human_attribute_name(:duration)}" %>
           <%= "#{task_log.task.duration_min} #{t(:minutes)}" %>
+          <% if current_user.admin? %>
+            <span class="float-right">
+              <%= icon_link_to 'trash', t(:delete), group_task_log_path(@group, task_log), method: :delete, data: {confirm: t(:are_you_sure?)} %>
+            </span>
+          <% end %>
         </div>
       </div>
     </div>
+
     <div class="card-body">
       <div class="row">
         <div class="col-12">

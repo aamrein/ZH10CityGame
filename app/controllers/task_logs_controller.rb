@@ -53,7 +53,7 @@ class TaskLogsController < ApplicationController
   # DELETE /task_logs/1
   def destroy
     @task_log.destroy
-    redirect_to task_logs_url, notice: 'Task log was successfully destroyed.'
+    redirect_back fallback_location: root_path, notice: 'Task log was successfully destroyed.'
   end
 
   def start
