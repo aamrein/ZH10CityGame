@@ -41,28 +41,25 @@ div.actions {
   margin-bottom: 10px;
 }
 
-.notice {
+.notice, .alert {
   position: fixed;
   bottom: 20px;
   right: -100px;
+  z-index: 100;
   max-width: 300px;
   transform: translate(-50%, 0);
-  border: 2px solid green;
   border-radius: 3px;
-  background-color: lightgreen;
   padding: 6px;
 }
 
+.notice {
+  border: 2px solid green;
+  background-color: lightgreen;
+}
+
 .alert {
-  position: fixed;
-  bottom: 20px;
-  right: -100px;
-  max-width: 300px;
-  transform: translate(-50%, 0);
   border: 2px solid red;
-  border-radius: 3px;
   background-color: lightcoral;
-  padding: 6px;
 }
 
 .field_with_errors {
