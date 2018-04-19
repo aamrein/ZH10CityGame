@@ -33,10 +33,20 @@
         <% end %>
       </div>
     </div>
-    <div class="card-header">
+    <div class="card-footer">
       <% constructed_building.event_logs.each do |event_log| %>
         <div class="row">
-          <div class="col-12"><%= "#{event_log.event.name} #{t(:at)} #{format_date_time(event_log.start.localtime)}" %></div>
+          <div class="col-12">
+            <%= "#{event_log.event.name} #{t(:at)} #{format_date_time(event_log.start.localtime)}" %>
+          </div>
+          <div class="col-12">
+            <%= icon 'bomb', title: Event.human_attribute_name(:impact_percent) %><%= "#{event_log.event.impact_percent}% / " %>
+            <%= icon 'clock-o', title: Event.human_attribute_name(:duration) %><%=" #{event_log.event.duration_min} #{t(:minutes)}" %>
+          </div>
+          <div class="col-12">
+            <%= "#{t(:remaining)} #{event_log.event.impact_percent}% / " %>
+          </div>
+          <hr>
         </div>
       <% end %>
     </div>
