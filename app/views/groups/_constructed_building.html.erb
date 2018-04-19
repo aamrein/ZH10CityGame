@@ -40,11 +40,22 @@
             <%= "#{event_log.event.name} #{t(:at)} #{format_date_time(event_log.start.localtime)}" %>
           </div>
           <div class="col-12">
-            <%= icon 'bomb', title: Event.human_attribute_name(:impact_percent) %><%= "#{event_log.event.impact_percent}% / " %>
-            <%= icon 'clock-o', title: Event.human_attribute_name(:duration) %><%=" #{event_log.event.duration_min} #{t(:minutes)}" %>
+            <% if event_log.remaining_time > 0 %>
+              <%= t(:remaining) %>
+              <%= icon 'bomb', title: Event.human_attribute_name(:impact_percent) %>
+              <span class="number-format"><%= "#{event_log.remaining_impact}" %></span><%="% / "%>
+              <%= icon 'clock-o', title: Event.human_attribute_name(:duration) %>
+              <%=" #{distance_of_time_in_words_to_now(Time.now - event_log.remaining_time)}" %>
+            <% else %>
+              <%= "#{t(:ended)} #{t(:at)} #{format_date_time(event_log.end.localtime)}" %>
+            <% end %>
           </div>
           <div class="col-12">
-            <%= "#{t(:remaining)} #{event_log.event.impact_percent}% / " %>
+            <%= t(:demage) %>
+            <%= icon 'bomb', title: Event.human_attribute_name(:impact_percent) %>
+            <%= "#{event_log.event.impact_percent}% / " %>
+            <%= icon 'clock-o', title: Event.human_attribute_name(:duration) %>
+            <%=" #{event_log.event.duration_min} #{t(:minutes)}" %>
           </div>
           <hr>
         </div>
