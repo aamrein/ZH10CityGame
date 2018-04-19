@@ -26,6 +26,18 @@
         <div class="col-12"><%= group.comment %></div>
       </div>
     </div>
+    <div class="card-footer">
+      <h6><%= t('group.constructed_buildings') %></h6>
+      <div class="row">
+        <% if group.constructed_buildings.length > 0 %>
+          <% group.constructed_buildings.each do |constructed_building| %>
+            <div class="col-6 col-sm-4 col-md-3"><%= constructed_building.building.name %></div>
+          <% end %>
+        <% else %>
+          <div class="col-12"><%= t('group.no_buildings_constructed_now') %></div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

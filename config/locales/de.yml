@@ -34,6 +34,7 @@ de:
     can_not_build_first_build_x: "Zuerst %{building_name} bauen."
     constructed_buildings: 'Gebaute Gebäude'
     not_constructed_buildings: 'Nicht gebaute Gebäude'
+    no_buildings_constructed_now: 'Es wurden noch keine Gebäude gebaut'
     tasks: 'Aufgaben'
   task_log:
     open: 'Offen'
