@@ -17,7 +17,11 @@ class Group < ApplicationRecord
   end
 
   def population
-    self.constructed_buildings.inject(0){|sum, constructed_building| sum + constructed_building.building.inhabitants}
+    self.constructed_buildings.inject(0){|sum, constructed_building|
+      unless constructed_building.under_construction
+        sum + constructed_building.building.inhabitants
+      end
+    }
   end
 
   def constructable_buildings
