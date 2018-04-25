@@ -24,9 +24,10 @@ class ConstructedBuildingsController < ApplicationController
 
   # DELETE /constructed_buildings/1
   def destroy
-    if @constructed_building.under_construction || current_user.role == 'admin'
+    if @constructed_building.under_construction || current_user.admin?
+      building_name = @constructed_building.building.name
       @constructed_building.destroy
-      redirect_to group_path(@group), notice: 'Der Bau des Gebäudes wurde abgebrochen.'
+      redirect_to group_path(@group), notice: "Das Gebäude '#{building_name}' wurde abgebrochen."
     else
       redirect_to group_path(@group), alert: 'Das Gebäude kann nicht zerstört werden, da es bereits fertig gebaut ist.'
     end

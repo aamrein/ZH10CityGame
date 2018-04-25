@@ -8,7 +8,7 @@
           <span class="number-format"><%= constructed_building.amount.to_i + constructed_building.building.cost.to_i %></span>
           <span class="float-right">
             <%= icon_link_to 'search', t(:show), constructed_building.building %>
-            <% if constructed_building.under_construction %>
+            <% if constructed_building.under_construction || current_user.admin? %>
                 <%= icon_link_to 'trash', t(:delete), group_constructed_building_path(@group, constructed_building), method: :delete, data: { confirm: t(:are_you_sure?) } %>
             <% end %>
           </span>
