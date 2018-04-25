@@ -52,13 +52,13 @@ class Group < ApplicationRecord
     total = 0
     self.task_logs.each do |task_log|
       task = task_log.task
-      if task_log.done
-        if task.settlement_immediately || !task.settlement_immediately && game.is_over?
-          total += task.value
+      if task.value > 0
+        if task_log.done
+          total = task.value
         end
       else
-        if game.is_over? && !task.optional
-          total += task.value
+        if !task_log.done && (!task_log.on_time || game.is_over?)
+          total = task.value
         end
       end
     end

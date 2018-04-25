@@ -6,7 +6,11 @@ class TaskLog < ApplicationRecord
   end
 
   def on_time
-    self.start.getutc + self.task.duration_min * 60 > Time.now.getutc
+    if started
+      self.start.getutc + self.task.duration_min * 60 > Time.now.getutc
+    else
+      true
+    end
   end
 
   def remaining_time
@@ -15,6 +19,21 @@ class TaskLog < ApplicationRecord
       remaining_time = (self.start.getutc + self.task.duration_min * 60) - DateTime.now.getutc
     end
     remaining_time > 0 ? remaining_time : 0
+  end
+
+  def current_amount
+    amount = 0
+    task = self.task
+    if task.value > 0
+      if self.done
+        amount = task.value
+      end
+    else
+      if !self.done && (!self.on_time || self.game.is_over?)
+        amount = task.value
+      end
+    end
+    amount
   end
 
 end
