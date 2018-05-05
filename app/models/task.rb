@@ -3,4 +3,5 @@ class Task < ApplicationRecord
 
   validates :name, :presence => true
   validates :value, :presence => true
+  validates :duration_min, :presence => true
 end
