@@ -29,6 +29,9 @@ de:
 
   under_construction: 'wird gebaut'
   cant_build: 'kann nicht gebaut werden'
+  no_accounting_exist: 'Keine Buchungen vorhanden'
+  accounting_was_successfully_created: 'Buchung erfolgreich erstellt.'
+  accounting_was_successfully_updated: 'Buchung erfolgreich aktualisiert.'
 
   group:
     can_not_build_first_build_x: "Zuerst %{building_name} bauen."
@@ -42,6 +45,9 @@ de:
 
   activerecord:
     models:
+      accounting:
+        one: 'Buchung'
+        other: 'Buchungen'
       category:
         one: 'Kategorie'
         other: 'Kategorien'

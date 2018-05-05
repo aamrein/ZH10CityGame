@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :accountings
   resources :tasks
   resources :categories
   resources :buildings

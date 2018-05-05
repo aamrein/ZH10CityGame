@@ -3,12 +3,16 @@ class Group < ApplicationRecord
   belongs_to :user
   has_many :constructed_buildings
   has_many :task_logs, -> { order(:id) }
+  has_many :accountings
 
   validates :name, :presence => true
   validates :start_balance, :presence => true
 
   def balance
-    (self.start_balance + total_amount_of_constructed_buildings + total_amount_of_tasks).round 2
+    self.start_balance +
+        total_amount_of_constructed_buildings +
+        total_amount_of_tasks +
+        total_accountings
   end
 
   def points
@@ -63,5 +67,9 @@ class Group < ApplicationRecord
       end
     end
     total
+  end
+
+  def total_accountings
+    self.accountings.inject(0){|sum,e| sum + e.amount}
   end
 end
