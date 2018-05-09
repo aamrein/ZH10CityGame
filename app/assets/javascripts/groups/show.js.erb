@@ -40,8 +40,14 @@ function interpolateBalance(){
 interpolateBalance()
 
 function updateBalance() {
-    if(nextUpdateIn < 60000) {
+    if(nextUpdateIn < 30000) {
         nextUpdateIn = nextUpdateIn*2;
+    } else {
+        timeStart = 0;
+        timeLast = 0;
+        balanceStart = 0;
+        balanceLast = 0;
+        nextUpdateIn = 2000;
     }
     setTimeout(function() {
         if(currentLocation === window.location.href) {
