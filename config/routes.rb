@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   resources :accountings
   resources :tasks
   resources :categories
@@ -17,7 +19,6 @@ Rails.application.routes.draw do
   get '/add_task_log', to: 'task_logs#add'
   get '/start_task_log', to: 'task_logs#start'
 
-  devise_for :users
   root to: 'groups#index'
 
 end
