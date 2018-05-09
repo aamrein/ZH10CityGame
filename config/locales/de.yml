@@ -32,6 +32,7 @@ de:
   no_accounting_exist: 'Keine Buchungen vorhanden'
   accounting_was_successfully_created: 'Buchung erfolgreich erstellt.'
   accounting_was_successfully_updated: 'Buchung erfolgreich aktualisiert.'
+  user_was_successfully_updated: 'Benutzer erfolgreich aktualisiert.'
 
   group:
     can_not_build_first_build_x: "Zuerst %{building_name} bauen."

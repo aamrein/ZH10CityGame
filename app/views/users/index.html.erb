@@ -1,0 +1,27 @@
+<%= render layout: 'layouts/content_header', locals: {title: User.model_name.human(count: 2)} do %>
+<% end %>
+
+<% @users.each do |user| %>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-10 col-sm-8 col-md-6">
+          <div class="row">
+            <div class="col-3">User</div>
+            <div class="col-9"><%= user.email %></div>
+          </div>
+          <div class="row">
+            <div class="col-3"><%= Group.model_name.human() %></div>
+            <div class="col-9"><%= user.group.name unless user.group.nil? %></div>
+          </div>
+        </div>
+        <div class="col-2 col-sm-4 col-md-6">
+          <span class="pull-right">
+            <%= icon_link_to 'pencil', t(:edit), edit_user_path(user) %>
+            <%= icon_link_to 'trash', t(:delete), user, method: :delete, data: {confirm: t(:are_you_sure?)} %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

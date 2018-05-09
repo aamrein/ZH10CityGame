@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :buildings
   resources :events
   resources :games
+  resources :users
   resources :groups do
     resources :task_logs
     resources :constructed_buildings do
