@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     # I18n.locale = params[:locale] || I18n.default_locale
     I18n.locale = :de
   end
+
+  def authenticate_admin
+    unless (current_user && current_user.admin?)
+      redirect_to root_path, alert: t(:not_authorized)
+    end
+  end
 end

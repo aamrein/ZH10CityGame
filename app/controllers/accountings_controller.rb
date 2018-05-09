@@ -1,4 +1,5 @@
 class AccountingsController < ApplicationController
+  before_action :authenticate_admin
   before_action :set_accounting, only: [:edit, :update, :destroy]
   before_action :set_group, only: [:edit, :update, :new, :create]
 

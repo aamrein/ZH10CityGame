@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430192202) do
+ActiveRecord::Schema.define(version: 2018_04_30_192202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 20180430192202) do
     t.string "location"
     t.integer "duration_min"
     t.integer "value"
-    t.boolean "settlement_immediately"
     t.string "comment"
+    t.boolean "settlement_immediately"
     t.boolean "optional"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

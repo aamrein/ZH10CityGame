@@ -56,10 +56,4 @@ class BuildingsController < ApplicationController
     params.require(:building).permit(:category_id, :name, :inhabitants, :construction_duration_sec, :comment,
                                      :cost, :cost_per_hour, :income_per_hour, :required_building_id, :image)
   end
-
-  def authenticate_admin
-    unless (current_user && current_user.admin?)
-      redirect_to root_path, alert: t(:not_authorized)
-    end
-  end
 end

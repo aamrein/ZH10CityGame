@@ -57,10 +57,4 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:name, :start, :duration, :amount_per_inhabitants_per_hour)
   end
-
-  def authenticate_admin
-    unless (current_user && current_user.admin?)
-      redirect_to root_path, alert: t(:not_authorized)
-    end
-  end
 end

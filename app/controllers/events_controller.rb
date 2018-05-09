@@ -55,10 +55,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :impact_percent, :duration_min, :comment)
   end
-
-  def authenticate_admin
-    unless (current_user && current_user.admin?)
-      redirect_to root_path, alert: t(:not_authorized)
-    end
-  end
 end

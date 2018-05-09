@@ -81,10 +81,4 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:game_id, :name, :email, :phone, :start_balance, :building_ban, :comment)
   end
-
-  def authenticate_admin
-    unless (current_user && current_user.admin?)
-      redirect_to root_path, alert: t(:not_authorized)
-    end
-  end
 end
