@@ -24,5 +24,9 @@ module RealityGameAdmin
     # config.active_record.raise_in_transactional_callbacks = true
 
     config.serve_static_assets = true
+
+    config.time_zone = 'Berlin'
+    config.active_record.default_timezone = :local
+    config.active_record.time_zone_aware_attributes = false
   end
 end
