@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_30_192202) do
+ActiveRecord::Schema.define(version: 2018_05_10_142231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2018_04_30_192202) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "comment"
+    t.boolean "hide", default: false
     t.index ["group_id"], name: "index_accountings_on_group_id"
   end
 

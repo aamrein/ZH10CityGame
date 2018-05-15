@@ -18,7 +18,17 @@
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.text_field :amount, id: :amount %>
+    <%= form.number_field :amount, id: :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment, id: :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hide %>
+    <%= form.check_box :hide, id: :hide %>
   </div>
 
   <div class="actions">

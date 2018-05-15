@@ -31,7 +31,11 @@ class AccountingsController < ApplicationController
   # PATCH/PUT /accountings/1
   def update
     if @accounting.update(accounting_params)
-      redirect_to accountings_path, notice: t(:accounting_was_successfully_updated)
+      if request.xhr?
+          render partial: 'update', locals: {id: params[:id]}
+      else
+        redirect_to accountings_path, notice: t(:accounting_was_successfully_updated)
+      end
     else
       render :edit
     end
@@ -53,6 +57,6 @@ class AccountingsController < ApplicationController
     end
 
     def accounting_params
-      params.require(:accounting).permit(:group_id, :amount)
+      params.require(:accounting).permit(:group_id, :amount, :comment, :hide)
     end
 end

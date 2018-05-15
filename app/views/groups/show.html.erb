@@ -34,6 +34,19 @@
   </div>
 <% end %>
 
+<% @group.accountings.each do |accounting|%>
+  <% unless accounting.hide %>
+    <div class="card" id="card-id-<%= accounting.id %>">
+      <div class="card-body">
+        <div class="float-right">
+          <%= button_to "X", accounting_path(accounting), params: {accounting: {hide: true}}, method: :put, remote: true %>
+        </div>
+        <span class="number-format"><%= accounting.amount %></span><%=".- #{accounting.comment}" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 <ul class="nav nav-tabs" id="groupTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="constructed-tab" data-toggle="tab" href="#constructed" role="tab" aria-controls="constructed" aria-selected="true">
