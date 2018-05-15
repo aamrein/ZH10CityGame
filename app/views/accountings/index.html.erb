@@ -14,12 +14,16 @@
       <div class="row">
         <div class="col-10 col-sm-8 col-md-6">
           <div class="row">
-            <div class="col-3">ID</div>
-            <div class="col-9"><%= accounting.group_id %></div>
+            <div class="col-6">ID: <%= accounting.group_id %></div>
+            <div class="col-6">Amount: <%= accounting.amount %></div>
           </div>
           <div class="row">
-            <div class="col-3">Amount</div>
-            <div class="col-9"><%= accounting.amount %></div>
+            <div class="col-9"><%= accounting.comment %></div>
+            <% if accounting.hide %>
+              <div class="col-3"><%= t(:invisible) %></div>
+          <% else %>
+              <div class="col-3"><%= t(:visible) %></div>
+          <% end %>
           </div>
         </div>
         <div class="col-2 col-sm-4 col-md-6">

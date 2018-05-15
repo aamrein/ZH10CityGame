@@ -3,6 +3,8 @@ de:
   show: 'Details'
   edit: 'Bearbeiten'
   delete: 'Löschen'
+  visible: 'Sichtbar'
+  invisible: 'Unsichtbar'
 
   new: 'Neu'
   new_game: 'Neues Spiel'
