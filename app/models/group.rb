@@ -17,7 +17,8 @@ class Group < ApplicationRecord
 
   def points
     self.balance +
-        self.constructed_buildings.inject(0){|sum, constructed_building| sum + constructed_building.building.cost}
+        self.constructed_buildings.inject(0){|sum, constructed_building| sum + constructed_building.building.cost} * 0.8 +
+        population * 100
   end
 
   def population
